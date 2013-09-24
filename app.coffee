@@ -40,7 +40,7 @@ locals:
   typekit: 'tyz6mhj'
   # angular: ''
   # jQuery: ''
-  # sitekey: 'UA-44315316-1'
+  sitekey: 'UA-44315316-1'
 
   #### CSS CENTRIC
 
