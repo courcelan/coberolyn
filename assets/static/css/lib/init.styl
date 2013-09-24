@@ -1,0 +1,80 @@
+// 2.0 Initializations
+//
+// These stylus mixins & functions reset browser base HTML and set up an Esjan
+// project
+
+
+
+// 2.1 html-init
+//
+// Sets root font-size to 10px for use with REM styling
+// Sets viewport to 100% height to force scrollbar so content doesn't bounce
+// around
+html-init()
+  font-size: 62.5%
+  height: 100%
+  // no harm no foul
+  -ms-text-size-adjust: 100%
+  -webkit-text-size-adjust: 100%
+
+
+////////////////////////////////////////////////////////////////////////////////
+
+// 2.2 body-init
+body-init( size = basesize, lineHeight = baseline, layout = "center" ) //default font sizing
+  position: relative
+  margin: 0 auto if layout is "center"
+  margin: 0 0 0 auto if layout is "right"
+  min-height: 100%
+  font-family: body-stack-mobile
+  font-size: size
+  line-height: lineHeight
+  color: text-color
+
+
+////////////////////////////////////////////////////////////////////////////////
+
+// 2.3 reset
+reset(underline_links = false)
+  *
+    background-repeat: no-repeat
+    margin: 0
+    padding: 0
+    box-size()
+    font-size: 100%
+    font-weight: 400
+
+  article,
+  aside,
+  details,
+  figcaption,
+  figure,
+  footer,
+  header,
+  hgroup,
+  nav,
+  section,
+  summary,
+  a,
+  cite,
+  img,
+  mark,
+  time
+    display: block
+
+////////////////////////////////////////////////////////////////////////////////
+
+// 2.4 reset-html5-avi
+reset-html5-avi()
+  audio,
+  canvas,
+  video
+    display: inline-block
+
+    if support-ie
+      display: inline
+      zoom: 1
+
+  audio:not([controls])
+    display: none
+    height: 0

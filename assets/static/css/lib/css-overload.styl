@@ -1,0 +1,120 @@
+// overload padding to produce REM values from PX values
+// if a PCT is assigned, will not be converted to REMs
+//
+padding(args...)
+  if length(args) == 1
+    padding: rem(args[0])
+  if length(args) == 2
+    padding: rem(args[0]) rem(args[1])
+  if length(args) == 3
+    padding: rem(args[0]) rem(args[1]) rem(args[2])
+  if length(args) == 4
+    padding: rem(args[0]) rem(args[1]) rem(args[2]) rem(args[3])
+
+// overload individual padding to produce REM values from PX values
+// if a PCT is assigned, will not be converted to REMs
+//
+padding-top(arg)
+  padding-top: rem(arg)
+padding-right(arg)
+  padding-right: rem(arg)
+padding-bottom(arg)
+  padding-bottom: rem(arg)
+padding-left(arg)
+  padding-left: rem(arg)
+
+
+// overload margin to produce REM values from PX values
+// if a PCT is assigned, will not be converted to REMs
+//
+margin(args...)
+  if length(args) == 1
+    margin: rem(args[0])
+  if length(args) == 2
+    margin: rem(args[0]) rem(args[1])
+  if length(args) == 3
+    margin: rem(args[0]) rem(args[1]) rem(args[2])
+  if length(args) == 4
+    margin: rem(args[0]) rem(args[1]) rem(args[2]) rem(args[3])
+
+// overload individual margins to produce REM values from PX values
+// if a PCT is assigned, will not be converted to REMs
+//
+margin-top(arg)
+  margin-top: rem(arg)
+margin-right(arg)
+  margin-right: rem(arg)
+margin-bottom(arg)
+  margin-bottom: rem(arg)
+margin-left(arg)
+  margin-left: rem(arg)
+
+// overload width to produce REM value from PX values
+// if a PCT is assigned, will not be converted to REMs
+//
+width(arg)
+  width: rem(arg)
+
+// overload height to produce REM value from PX values
+// if a PCT is assigned, will not be converted to REMs
+//
+height(arg)
+  height: rem(arg)
+
+
+// border(s)
+// quick method to just supply color for 1px solid line
+// otherwise display border property as usual
+border()
+  len = length(arguments)
+  border: 0 if arguments == 0
+  border: 1px solid arguments if len == 1 && arguments != 0
+  border: arguments if len > 1
+
+border-top()
+  len = length(arguments)
+  border-top: 0 if arguments == 0
+  border-top: 1px solid arguments if len == 1 && arguments != 0
+  border-top: arguments if len > 1
+
+border-bottom()
+  len = length(arguments)
+  border-bottom: 0 if arguments == 0
+  border-bottom: 1px solid arguments if len == 1 && arguments != 0
+  border-bottom: arguments if len > 1
+
+border-left()
+  len = length(arguments)
+  border-left: 0 if arguments == 0
+  border-left: 1px solid arguments if len == 1 && arguments != 0
+  border-left: arguments if len > 1
+
+border-right()
+  len = length(arguments)
+  border-right: 0 if arguments == 0
+  border-right: 1px solid arguments if len == 1 && arguments != 0
+  border-right: arguments if len > 1
+
+
+// clip background
+// see http://www.css3files.com/background/#backgroundclip
+// padding, border, content; border is browser default; padding is function default
+// does not work in IE 8 or below, Fx 3.6 requires -moz-, Opera 10 requires -o-
+background-clip(type = "padding", prefix = null)
+  if prefix
+    //set additional moz declaration for FF 3.6
+    -moz-background-clip: type
+
+  background-clip: s("%s-box", type)
+
+// typically used to change box model to border model which intrinsically makes more sense
+// we use this in the reset rules to apply this rule to every element
+// does not work in IE7 or below
+box-size(  )
+  if 0 == length(arguments)
+    box = border-box
+  else
+    box = s("%s-box", arguments)
+
+  -moz-box-sizing: box
+  box-sizing: box

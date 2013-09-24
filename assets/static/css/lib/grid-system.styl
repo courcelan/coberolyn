@@ -1,0 +1,154 @@
+////////////////////////////////////////////////////////////////////////////////
+// GRIDS
+// currently only set up for even columns
+//
+// declare columns like:
+// columns = (number mod_width gutter_width)
+// ucolumns = (mod_width gutter_width) (mod_width gutter_width) (mod_width gutter_width) ...
+////////////////////////////////////////////////////////////////////////////////
+
+
+////////////////////////////////////////////////////////////////////////////////
+//GRID-MODULE
+// base class (.item or .mod) that adheres to the grid
+grid-module()
+  .item,
+  .mod
+    display: inline-block
+    position: relative
+    width: 100%
+    vertical-align: top
+    text-align: left
+
+
+////////////////////////////////////////////////////////////////////////////////
+// GRID-ROW
+// span complete width of grid
+grid-row(expand = 1, gridset = grid)
+  if expand
+    width = _get_grid_width(gridset)
+
+    max-width: unit( width, "px")
+
+grid-justify()
+  line-height: 1
+  text-align: justify !important
+  text-justify: distribute-all-lines
+
+  &:after
+    content: ""
+    display: inline-block
+    width: 100%
+
+////////////////////////////////////////////////////////////////////////////////
+// GRID-SPAN
+// span series of columns, outer margins are margins
+grid-span(columns = 1, context = null, add = 0, gridset = grid)
+  return _grid_no_gutter(columns, context, add, gridset)
+
+////////////////////////////////////////////////////////////////////////////////
+// GRID-FLUSH
+// span series of columns, include outer margins as part of width
+// when even columns, forcing context will be null unless explicitly stated
+grid-flush(columns = 1, context = null, add = 0, gridset = grid)
+  return _grid_and_gutter(columns, context, add, gridset)
+
+////////////////////////////////////////////////////////////////////////////////
+// GRID-GUTTER
+// return a percentage gutter, not needed when using justified grids
+grid-gutter(context = null, gridset = grid)
+  margins = 0
+  parent_context = _get_grid_width(gridset)
+
+  if is_even_col(gridset) // even columns in set
+    margins = gridset[2] / 2
+    parent_context = _context-unit(context, parent_context)
+
+    return pct( margins, parent_context)
+
+////////////////////////////////////////////////////////////////////////////////
+// GRID-OFFSET
+// offset from left or right a certain number of columns
+// use margin-left for creating empty space on left
+// use margin-right for creating empty space on right
+// use left positioning for pulling/pushing to new location
+grid-offset(columns = 1, context = null, add = 0, gridset = grid)
+  return _grid_and_gutter(columns, context, add, gridset)
+
+
+////////////////////////////////////////////////////////////////////////////////
+// PRIVATE FUNCTIONS
+// used for grid calculations
+_is_even_col(gridset)
+  if length(gridset) == 3 and length(last(gridset)) == 2
+    return false
+  else
+    return true
+
+_context-unit(context, parent_context)
+  if context
+    if unit(context) == "px" or !unit(context)
+      parent_context = context
+    else if unit(context) == "%"
+      parent_context = unit(parent_context * (context / 100), "px")
+
+  return parent_context
+
+_get_grid_width(gridset)
+  total_column_area = 0
+  total_gutters = 0
+
+  if _is_even_col(gridset)
+    total_gutters = gridset[0] * gridset[2]
+    total_column_area = gridset[0] * gridset[1]
+  else
+    for col in gridset
+      total_column_area += col[0]
+      total_gutters += col[1]
+
+  return total_column_area + total_gutters
+
+_get_column_widths(columns, gridset)
+  span_width = 0
+
+  if is_even_col(gridset) // even columns in gridset
+    span_width = gridset[1] * columns
+
+  return span_width
+
+_add_width_check(add_width, parent_context)
+  if unit(add_width) == "%"
+    add_width = (add_width / 100) * parent_context
+    return unit(add_width, "px")
+  else
+    return add_width
+
+// for flush design
+_grid_and_gutter(columns = 1, context = null, add_width = 0, gridset = grid)
+  mod_width = 0
+
+  if is_even_col(gridset) // even columns in set
+    parent_context = _context-unit( context, _get_grid_width(gridset) )
+    add_width = _add_width_check(add_width, parent_context)
+    mod_width = _get_column_widths(columns, gridset)
+    mod_width += (gridset[2] * columns)
+    mod_width += add_width
+
+  return pct(mod_width, parent_context)
+
+
+
+_grid_no_gutter(columns = 1, context = null, add_width = 0, gridset = grid)
+  mod_width = 0
+
+  if is_even_col(gridset) // even columns in set
+    parent_context = _context-unit( context, _get_grid_width(gridset) )
+    add_width = _add_width_check(add_width, parent_context)
+    mod_width = _get_column_widths(columns, gridset)
+
+    if mod_width > gridset[2] // make sure width is greater than the gutter size
+      mod_width += ( gridset[2] * (columns - 1) )
+
+    mod_width += add_width
+
+  return pct(mod_width, parent_context)

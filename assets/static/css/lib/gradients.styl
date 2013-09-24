@@ -1,0 +1,99 @@
+// simple linear gradient
+// Create a linear gradient with the given start position
+// and variable number of color stops.
+//
+// Examples:
+//
+//      background: linear-gradient(top, red, green, blue)
+//      background: linear-gradient(bottom, red, green 50%, blue)
+//      background: linear-gradient(bottom, red, 50% green, blue)
+//      background: linear-gradient(bottom, red, 50% green, 90% white, blue)
+webkit-linear-gradient(start, stops...)
+  stops = normalize-stops(stops)
+  stops = join-stops(stops, std-stop)
+
+  if typeof(start) == "unit"
+    '-webkit-linear-gradient(%s, %s)' % (start stops)
+  else
+    '-webkit-linear-gradient(%s, %s)' % (opposite-position(start) stops)
+
+linear-gradient(start, stops...)
+  stops = normalize-stops(stops)
+  stops = join-stops(stops, std-stop)
+
+  if typeof(start) == "unit"
+    'linear-gradient(%s, %s)' % (start stops)
+  else
+    'linear-gradient(to %s, %s)' % (start stops)
+
+to-black(start = top, opacity = 1, location = 100%)
+  webkit-linear-gradient(start, black(0) 0, black(opacity) location)
+  linear-gradient(start, black(0) 0, black(opacity) location)
+
+to-white(start = top, opacity = 1, location = 0)
+  webkit-linear-gradient(start, white(0) 0, white(opacity) location)
+  linear-gradient(start, white(0) 0, white(opacity) location)
+
+
+// Implicit color stop position.
+pos-in-stops(i, stops)
+  len = length(stops)
+  if len - 1 == i
+    100%
+  else if i
+    unit(i / len * 100, '%')
+  else
+    0%
+
+// Normalize color stops:
+// - (color pos) -> (pos color)
+// - (color) -> (implied-pos color)
+normalize-stops(stops)
+  stops = clone(stops)
+  for stop, i in stops
+    if length(stop) == 1
+      color = stop[0]
+      stop[0] = pos-in-stops(i, stops)
+      stop[1] = color
+    else if typeof(stop[1]) == 'unit'
+      pos = stop[1]
+      stop[1] = stop[0]
+      stop[0] = pos
+  stops
+
+
+// Normalize gradient points.
+grad-point(pos)
+  if length(pos) == 1
+    return left pos if pos in (top bottom)
+    return pos top if pos in (left right)
+  else if pos[0] in (top bottom)
+    pos[1] pos[0]
+  else
+    pos
+
+// Join color stops with the given translation function.
+join-stops(stops, translate)
+  str = ''
+  len = length(stops)
+  for stop, i in stops
+    str += ', ' if i
+    pos = stop[0]
+    color = stop[1]
+    str += translate(color, pos)
+  unquote(str)
+
+// Replace the given str with val in the expr.
+replace(expr, str, val)
+  expr = clone(expr)
+  for e, i in expr
+    if length(e) > 1
+      expr[i] = replace(e, str, val)
+    else
+      if str == e
+	expr[i] = val
+  expr
+
+// Standard color stop.
+std-stop(color, pos)
+  '%s %s' % (color pos)

@@ -1,0 +1,181 @@
+// 1.0 General Helpers
+//
+// These stylus mixins & functions are used throughout ESJAN and your own
+// stylus files.
+
+
+
+// 1.1 Percentage
+//
+// Find a percentage width based on target and reference widths.
+// Setting global `usePX` to true will return value in px,
+// rather than in a percentage. This is useful for targeting IE.
+//
+// @numerator - target width
+// @denominator - target width's parents width
+//
+// Compatible in IE6+, Firefox3+, Safari, Chrome, Opera
+//
+// Examples:
+//
+//    width: pct(50px, 275px) // returns 18.181818182%
+//
+//
+pct( numerator, denominator )
+  if (usePX is defined and usePX)
+    return unit(numerator, "px")
+  else
+    return unit( (numerator/denominator) * 100, "%")
+
+
+
+// 1.2 REMs
+//
+// Find the rem value based on target and root width (based on 10px).
+// Setting global `noREM` to true will return value in px,
+// rather than in REMs. This is useful for targeting IE8, which
+// doesn't understand REMs.
+//
+// @size_value - size unit in PX only. `auto`, 0, `inherit`, `rem`, `em`, etc
+// are passed on
+//
+// Examples:
+//
+//    font-size: rem(12px) // returns 1.2rem
+//
+//
+rem( size_value )
+  if (noREM is defined and noREM)
+    size_value
+  else
+    if (size_value == "auto") or (size_value is 0) or (size_value == "inherit")
+      size_value
+    else if (typeof(size_value) is "unit" and unit(size_value) != "px")
+      size_value
+    else
+      rem_value = (size_value/10)
+      unit(rem_value, 'rem')
+
+
+
+// 1.3 Layers
+//
+//
+layers()
+  #layers
+    position: relative
+    z-index: 1
+
+    &:after,
+    &:before
+      content: ""
+      display: block
+      position: absolute
+      z-index: -1
+
+
+
+// 1.4 clear-floats (clearfix)
+//
+// four flavors for clearing floats. adds IE specific code if `supportIE` is set
+//
+// @clear-overflow() - traditional overflow set on container, causing floats to
+// be retained
+// @clear-floats() - adds :after element that clears floats
+// @clear-micro() - similar to clear-floats(), but adds additional :before
+// @clear-tabled() - defines container as a table cell to hold in floats
+//
+//
+//    .clear1
+//        clear-floats()
+//    .clear2
+//        clear-overflow()
+//    .clear3
+//        clear-micro()
+//    .clear4
+//        clear-tabled()
+//
+//
+clear-floats()
+  &:after
+    content: ""
+    position: static
+    display: table
+    clear: both
+
+clear-overflow()
+  overflow: hidden
+
+  if supportIE
+    overflow: visible
+    zoom: 1
+
+clear-micro()
+  if supportIE
+    zoom: 1
+
+  &:before
+  &:after
+    content: ""
+    position: static
+    display: table
+
+  &:before
+    clear: both
+
+clear-tabled()
+  display: table-cell
+  vertical-align: top
+  width: 10000px
+
+
+
+// 1.5 Utils
+//
+//
+utils()
+  .a11y
+    position: absolute !important
+    clip: rect(0,0,0,0)
+
+  .l
+    list-style: none
+
+  .left
+    float: left
+
+  .right
+    float: right
+
+
+
+// 1.6 vendor
+//
+// (DEPRECATED)
+//
+// Use to cycle through vendor-prefixes for a certain property
+// Deprecated as vendor prefixes are added/removed quickly
+// and its better to add to specific mixins
+//
+// @prop - property that needs vendor prefixes
+// @args - which should be passed along
+//
+// Examples:
+//
+//    vendor("border-radius", 3px)
+//
+//    outputs:
+//
+//    -moz-border-radius: 3px
+//    -ms-border-radius: 3px
+//    -o-border-radius: 3px
+//    -webkit-border-radius: 3px
+//    border-radius: 3px
+//
+//
+vendor(prop, args)
+  -moz-{prop} args
+  -ms-{prop} args
+  -o-{prop} args
+  -webkit-{prop} args
+  {prop} args

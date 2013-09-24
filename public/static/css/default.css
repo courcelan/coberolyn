@@ -1,0 +1,226 @@
+* {
+  background-repeat: no-repeat;
+  margin: 0;
+  padding: 0;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  font-size: 100%;
+  font-weight: 400;
+}
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+nav,
+section,
+summary,
+a,
+cite,
+img,
+mark,
+time {
+  display: block;
+}
+.a11y {
+  position: absolute !important;
+  clip: rect(0, 0, 0, 0);
+}
+.l {
+  list-style: none;
+}
+.left {
+  float: left;
+}
+.right {
+  float: right;
+}
+.media .sec {
+  float: left;
+  margin-right: 10px;
+}
+.media .sec-alt,
+.media .tert {
+  float: right;
+  margin-left: 10px;
+}
+.media,
+.media .pri {
+  overflow: hidden;
+}
+.flag,
+.flag--top,
+.flag--bottom {
+  display: table;
+  width: 100%;
+}
+.flag .sec,
+.flag--top .sec,
+.flag--bottom .sec,
+.flag .pri,
+.flag--top .pri,
+.flag--bottom .pri {
+  display: table-cell;
+  vertical-align: middle;
+}
+.flag .sec,
+.flag--top .sec,
+.flag--bottom .sec {
+  padding-right: 10px;
+}
+.flag .sec > img,
+.flag--top .sec > img,
+.flag--bottom .sec > img {
+  display: block;
+  max-width: inherit;
+}
+.flag .pri,
+.flag--top .pri,
+.flag--bottom .pri {
+  width: 100%;
+}
+.flag.reverse .sec,
+.flag--top.reverse .sec,
+.flag--bottom.reverse .sec {
+  padding-right: 0;
+  padding-left: 10px;
+}
+.flag--top .sec,
+.flag--top .pri {
+  vertical-align: top;
+}
+.flag--bottom .sec,
+.flag--bottom .pri {
+  vertical-align: bottom;
+}
+#layers {
+  position: relative;
+  z-index: 1;
+}
+#layers:after,
+#layers:before {
+  content: "";
+  display: block;
+  position: absolute;
+  z-index: -1;
+}
+.item,
+.mod {
+  display: inline-block;
+  position: relative;
+  width: 100%;
+  vertical-align: top;
+  text-align: left;
+}
+.typ--regular {
+  font-family: "great-primer", "Helvetica Neue", Arial, Helvetica, sans-serif;
+  font-size: 26px;
+  font-weight: 100;
+  line-height: 44px;
+  font-variant: small-caps;
+  color: #5b5b5b;
+  text-align: center;
+}
+form :focus {
+  outline: 0;
+}
+fieldset {
+  border: 0;
+}
+[disabled] {
+  cursor: default;
+}
+button,
+input,
+select,
+textarea {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  vertical-align: top;
+  font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  line-height: 22px;
+  border: 0;
+  border-radius: 0;
+}
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+  padding: 0;
+  border: 0;
+}
+button {
+  cursor: pointer;
+}
+input {
+  height: 22px;
+  margin: 0;
+}
+input[type="checkbox"],
+input[type="radio"] {
+  padding: 0;
+  width: auto;
+  float: left;
+}
+.lt-ie8 button,
+.lt-ie8 input,
+.lt-ie8 select,
+.lt-ie8 textarea {
+  vertical-align: middle;
+  overflow: visible;
+}
+.lt-ie8 [type="checkbox"],
+.lt-ie8 [type="radio"] {
+  height: 13px;
+  width: 13px;
+}
+input[type="search"] {
+  -webkit-appearance: none;
+}
+input[type="search"]::-webkit-search-decoration,
+input[type="search"]::-webkit-search-cancel-button {
+  display: none;
+}
+::-webkit-input-placeholder {
+  color: #5b5b5b;
+}
+.t-holding {
+  margin: 0 auto;
+  width: 530px;
+}
+html {
+/* set root font size to 10px for REM sizing */
+  font-size: 62.5%;
+  height: 100%;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+body {
+  position: relative;
+  margin: 0 auto;
+  min-height: 100%;
+  font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
+  font-size: 0;
+  line-height: 22px;
+  color: #5b5b5b;
+  display: table;
+  height: 100vh;
+  min-height: 768px;
+  width: 100%;
+  background: #f7a166;
+  background-image: -webkit-linear-gradient(bottom, #9c9e9e 2%, #fee1c8 50%);
+  background-image: linear-gradient(to top, #9c9e9e 2%, #fee1c8 50%);
+}
+[class*="cr--"] {
+  position: relative;
+  margin: 0 auto 22px;
+  width: 100%;
+  vertical-align: top;
+}
+.cr-main {
+  display: table-cell;
+  vertical-align: middle;
+}

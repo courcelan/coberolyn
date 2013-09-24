@@ -1,0 +1,118 @@
+// 3.1 reset some form elements
+reset-form()
+  // general form resets and baselines
+  // button, input, select, textarea
+  form
+    :focus
+      outline: 0
+
+  fieldset
+    border: 0
+
+
+////////////////////////////////////////////////////////////////////////////////
+
+// 3.2 reset some form elements
+reset-inputs()
+  [disabled]
+    cursor: default
+
+  button,
+  input,
+  select,
+  textarea
+    position: relative
+    display: inline-block
+    width: 100%
+    vertical-align: top
+    font-family: body-stack-mobile
+    font-size: basesize
+    line-height: baseline
+    border: 0
+    border-radius: 0
+
+  button,
+  input
+    &::-moz-focus-inner
+      padding: 0
+      border: 0
+
+  button
+    cursor: pointer
+
+  input
+    height: baseline
+    margin: 0
+
+    &[type="checkbox"],
+    &[type="radio"]
+      padding: 0
+      width: auto
+      float: left
+
+  if support-ie7
+    .lt-ie8
+      button,
+      input,
+      select,
+      textarea
+	vertical-align: middle
+	overflow: visible
+
+      [type="checkbox"],
+      [type="radio"]
+	height: 13px
+	width: 13px
+
+
+////////////////////////////////////////////////////////////////////////////////
+
+// 3.3 reset search button
+// to look like a regular text input
+reset-input-search()
+  input[type="search"]
+    -webkit-appearance: none
+
+    &::-webkit-search-decoration,
+    &::-webkit-search-cancel-button
+      display: none
+
+
+////////////////////////////////////////////////////////////////////////////////
+
+// 3.4 reset input[type=number]
+// almost always too large in width and spinners are always crap
+reset-input-number(default_width = 75%)
+  input[type="number"]
+    width: default_width
+    text-align: center
+
+    &::-webkit-inner-spin-button,
+    &::-webkit-outer-spin-button
+      -webkit-appearance: none
+      margin: 0
+
+
+////////////////////////////////////////////////////////////////////////////////
+
+// 3.5 reset placeholders
+// give placeholders a color
+reset-placeholders(off_color = text-color)
+  ::-webkit-input-placeholder
+    color: off_color
+
+
+////////////////////////////////////////////////////////////////////////////////
+
+// 3.6 reset datetime
+// mainly for chrome (excellent instance), gives the placeholder color
+reset-datetime(off_color = text_color, on_color = text_color)
+  ::-webkit-datetime-edit-month-field
+  ::-webkit-datetime-edit-day-field
+  ::-webkit-datetime-edit-year-field
+    color: off_color
+
+  input[value]::-webkit-datetime-edit-month-field
+  input[value]::-webkit-datetime-edit-day-field
+  input[value]::-webkit-datetime-edit-year-field
+    color: on_color
