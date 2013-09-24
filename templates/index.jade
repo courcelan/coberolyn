@@ -1,12 +1,8 @@
-!= title_with_markup()
+//- index
 
-:markdown
-  **Whoo!** You got everything working. Now get to making cool things : )
+extends _base
 
-p this file can be found in views/index.jade
-
-:markdown
-  For help and documentation, check out [http://roots.cx](http://roots.cx)
-
-:coffeescript
-  console.log 'you can even use coffeescript in your views, aw yeah'
+block primary
+  article.t-holding
+    img(src="#{ STATIC_URL }res/save-the-date-holder.png")
+    h1.typ--regular Our site is coming soon. Like a fine wine, this site will get better with age.

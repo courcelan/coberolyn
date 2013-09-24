@@ -12,13 +12,11 @@
 //GRID-MODULE
 // base class (.item or .mod) that adheres to the grid
 grid-module()
-  .item,
-  .mod
-    display: inline-block
-    position: relative
-    width: 100%
-    vertical-align: top
-    text-align: left
+  display: inline-block
+  position: relative
+  width: 100%
+  vertical-align: top
+  text-align: left
 
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -32,11 +30,12 @@ grid-row(expand = 1, gridset = grid)
 
 grid-justify()
   line-height: 1
-  text-align: justify !important
+  text-align: justify
   text-justify: distribute-all-lines
 
   &:after
     content: ""
+    position: static
     display: inline-block
     width: 100%
 
@@ -46,12 +45,20 @@ grid-justify()
 grid-span(columns = 1, context = null, add = 0, gridset = grid)
   return _grid_no_gutter(columns, context, add, gridset)
 
+grid-max-span(columns = 1, gridset = grid)
+  return unit(span-context(columns, grid), 'px')
+
 ////////////////////////////////////////////////////////////////////////////////
 // GRID-FLUSH
 // span series of columns, include outer margins as part of width
 // when even columns, forcing context will be null unless explicitly stated
 grid-flush(columns = 1, context = null, add = 0, gridset = grid)
   return _grid_and_gutter(columns, context, add, gridset)
+
+grid-max-flush(columns = 1, gridset = grid)
+  return unit(flush-context(columns, grid), 'px')
+
+
 
 ////////////////////////////////////////////////////////////////////////////////
 // GRID-GUTTER
@@ -74,6 +81,24 @@ grid-gutter(context = null, gridset = grid)
 // use left positioning for pulling/pushing to new location
 grid-offset(columns = 1, context = null, add = 0, gridset = grid)
   return _grid_and_gutter(columns, context, add, gridset)
+
+//like grid-flush, but returns a px value for further processing
+flush-context(columns = 1, gridset = grid)
+  span_width = _get_column_widths(columns, gridset)
+
+  if is_even_col(gridset) // even columns in columnset
+    span_width += gridset[2] * columns // include additional gutters
+
+  return span_width
+
+//like grid-span, but returns a px value for further processing
+span-context(columns = 1, gridset = grid)
+  span_width = _get_column_widths(columns, gridset)
+
+  if is_even_col(gridset) // even columns in columnset
+    span_width += ( gridset[2] * (columns - 1) ) // include additional gutters
+
+  return span_width
 
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -152,3 +177,17 @@ _grid_no_gutter(columns = 1, context = null, add_width = 0, gridset = grid)
     mod_width += add_width
 
   return pct(mod_width, parent_context)
+
+
+_max_grid_no_gutter(columns = 1, context = null, add_width = 0, gridset = grid)
+  if is_even_col(gridset) // even columns in set
+    parent_context = _context-unit( context, _get_grid_width(gridset) )
+    add_width = _add_width_check(add_width, parent_context)
+    mod_width = _get_column_widths(columns, gridset)
+
+    if mod_width > gridset[2] // make sure width is greater than the gutter size
+      mod_width += ( gridset[2] * (columns - 1) )
+
+    mod_width += add_width
+
+  return unit(mod_width, 'px')

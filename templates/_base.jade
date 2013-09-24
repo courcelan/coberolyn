@@ -9,7 +9,7 @@ html(lang="en-US", ng-app="imfirst", id="ng-app").no-js
 
     title
       block page_title
-	| #{ title }
+        | #{ title }
 
     if canonical
       link(rel="canonical", href="#{ canonical }")
@@ -18,8 +18,8 @@ html(lang="en-US", ng-app="imfirst", id="ng-app").no-js
       meta(name="description", content="#{ description }")
 
     if author
-	meta(name="author", content="#{ author }")
-	link(rel="author", href="#{ STATIC_URL }humans.txt")
+      meta(name="author", content="#{ author }")
+      link(rel="author", href="#{ STATIC_URL }humans.txt")
 
     meta(name="viewport", content="width=device-width, initial-scale=1.0")
     meta(name="apple-mobile-web-app-capable",content="yes")
@@ -38,13 +38,13 @@ html(lang="en-US", ng-app="imfirst", id="ng-app").no-js
 
     if supportIE7
       // if lte IE 7
-	link(rel="stylesheet", href="#{ STATIC_URL }css/ie7.css")
+        link(rel="stylesheet", href="#{ STATIC_URL }css/ie7.css")
     if supportIE8
       // if IE 8
-	link(rel="stylesheet", href="#{ STATIC_URL }css/ie8.css")
+        link(rel="stylesheet", href="#{ STATIC_URL }css/ie8.css")
     if supportIE9
       // if lte IE 9
-	link(rel="stylesheet", href="#{ STATIC_URL }css/ie9.css")
+        link(rel="stylesheet", href="#{ STATIC_URL }css/ie9.css")
 
     // if lte ie8
       script(src="http://html5shiv.googlecode.com/svn/trunk/html5.js")
@@ -52,14 +52,14 @@ html(lang="en-US", ng-app="imfirst", id="ng-app").no-js
     if typekit
       script(src="//use.typekit.net/#{ typekit }.js")
       script.
-	try{Typekit.load();}catch(e){}
+        try{Typekit.load();}catch(e){}
 
   body(dir="ltr", ontouchstart="", onmouseover="")
     // if lt IE 8
       p.chromeframe.
-	Your browser isn't <em>supported</em>
-	<a href="http://browsehappy.com/">Upgrade to a different browser</a> or
-	<a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to experience this site.
+        Your browser isn't <em>supported</em>
+        <a href="http://browsehappy.com/">Upgrade to a different browser</a> or
+        <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to experience this site.
 
     .cr-main
       block primary
@@ -70,7 +70,7 @@ html(lang="en-US", ng-app="imfirst", id="ng-app").no-js
     if jQuery
       script(src="//ajax.googleapis.com/ajax/libs/jquery/#{ jQuery }/jquery.min.js")
       script.
-	window.jQuery || document.write('<script src="#{ STATIC_URL }js/jquery.js"><\/script>')
+        window.jQuery || document.write('<script src="#{ STATIC_URL }js/jquery.js"><\/script>')
 
     if Angular
       script(src="#{ STATIC_URL }js/angular/angular.min.js")
@@ -83,13 +83,13 @@ html(lang="en-US", ng-app="imfirst", id="ng-app").no-js
       mathiasbynens.be/notes/async-analytics-snippet
     if sitekey
       script.
-	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-	  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-	})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+          (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-	ga('create', '#{ sitekey }', '#{ domain }');
-	ga('send', 'pageview');
+        ga('create', '#{ sitekey }', '#{ domain }');
+        ga('send', 'pageview');
 
     //- this must be included for live reload to work in developement
     //- it will be automatically ignored when deployed

@@ -45,33 +45,34 @@ b( alpha = 0.5, color = #FF0000 )
 //
 //
 dev-layout( orientation = left, fade = 50%, color = #eeeeee, gridset = grid, vertical = baseline) //for fixed width
-  //  applies both a fixed or fluid grid background
-  //  and a baseline grid background for layout purposes
-  gutter = gridset[2]
-  colColor = rgba( color, fade)
-  bColor = darken( color, 20%)
+  if is-dev
+    //  applies both a fixed or fluid grid background
+    //  and a baseline grid background for layout purposes
+    gutter = gridset[2]
+    colColor = rgba( color, fade)
+    bColor = darken( color, 20%)
 
-  module_width = gridset[1]
-  gtr = unit((gutter/2), "px")
-  endCell = unit(module_width+gutter, "px")
-  startMod = unit(module_width+gtr, "px")
+    module_width = gridset[1]
+    gtr = unit((gutter/2), "px")
+    endCell = unit(module_width+gutter, "px")
+    startMod = unit(module_width+gtr, "px")
 
-  stop1 = s("transparent %s", gtr)
-  stop2 = s("%s %s", colColor, gtr)
-  stop3 = s("%s %s", colColor, startMod)
-  stop4 = s("transparent %s", startMod)
-  stop5 = s("transparent %s", endCell)
-  gridStd = s("%s, %s, %s, %s, %s", stop1, stop2, stop3, stop4, stop5)
+    stop1 = s("transparent %s", gtr)
+    stop2 = s("%s %s", colColor, gtr)
+    stop3 = s("%s %s", colColor, startMod)
+    stop4 = s("transparent %s", startMod)
+    stop5 = s("transparent %s", endCell)
+    gridStd = s("%s, %s, %s, %s, %s", stop1, stop2, stop3, stop4, stop5)
 
-  // baseline grid
-  baselineStd = s("%s 1px, transparent 1px", bColor)
+    // baseline grid
+    baselineStd = s("%s 1px, transparent 1px", bColor)
 
-  // choose implementation depending on grid style
-  bkgSize = s("%s %s", rem(endCell), rem(vertical))
+    // choose implementation depending on grid style
+    bkgSize = s("%s %s", rem(endCell), rem(vertical))
 
-  background-image: -webkit-linear-gradient( left, gridStd ), -webkit-linear-gradient( baselineStd )
-  background-position: top orientation
-  background-repeat: repeat
-  vendor("background-size", bkgSize);
-  background-attachment: scroll
-  color: #000
+    background-image: -webkit-linear-gradient( left, gridStd ), -webkit-linear-gradient( baselineStd )
+    background-position: top orientation
+    background-repeat: repeat
+    vendor("background-size", bkgSize);
+    background-attachment: scroll
+    color: #000
