@@ -63,6 +63,7 @@
     "grunt-dev-update": "~0.3.0",
     "requirejs": "~2.1.9",
     "grunt-shell": "~0.2.2",
-    "grunt-build-gh-pages": "~0.1.2"
+    "grunt-build-gh-pages": "~0.1.2",
+    "grunt-github-pages": "0.0.4"
   }
 }
