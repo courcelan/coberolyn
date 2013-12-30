@@ -1,4 +1,5 @@
 deploy:
-  dist: "public"
-  build_branch: "gh-pages"
-  pull: false
+  options:
+    dist: "public"
+    build_branch: "gh-pages"
+    pull: false
