@@ -20,7 +20,7 @@ module.exports = (grunt) ->
 
       src:
         base: '_dev_src/'
-        html: '<%= src.base %>templates/'
+        html: '<%= src.base %>/content'
         css: '<%= src.base %>css/'
         js: '<%= src.base %>js/'
         assets: '<%= src.base %>res/'
