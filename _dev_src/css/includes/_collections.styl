@@ -1,0 +1,76 @@
+// COLLECTIONS
+// ==========================================================================
+// content regions
+// ==========================================================================
+
+.current-info
+  +enhanced()
+    width: auto
+    margin-left: blh*2
+
+.current-info--hdr
+  @extend $bodystack
+  position: absolute
+  top: 0
+  right: 0
+  color: color.oranges[2]
+  width: auto
+  text-align: right
+  transform: rotate(-90deg) translateY(-2350%)
+  transform-origin: bottom right
+
+  > .typ-promo
+    text-shadow:  1px -1px rgba(darken(color.oranges[2], 75%), 40%), 
+                  -1px 1px rgba(lighten(color.oranges[2], 25%), 80%)
+
+.current-info--bd
+  @extend $layers
+  background: color.bkg
+  border: 10px solid rgba(color.oranges[1], 25%)
+  border-top: 0
+  border-bottom: 0
+
+  &::before
+    edges: 0
+    border: rgba(color.oranges[2], 65%)
+    border-top: 0
+    border-bottom: 0
+
+  &::after
+    edges: 0 blh*-.5
+    border: 1px dashed rgba(color.oranges[1], 15%)
+    border-top: 0
+    border-bottom: 0
+
+  +enhanced()
+    min-height: 100vh
+
+.spot-info--hdr
+  @extend $bodystack
+  font-weight: 900
+  color: color.oranges[0]
+
+.spot-info--ftr
+  @extend $bodystack
+  font-size: bfs
+
+.spot-info--data
+  @extend $bodystack
+  font-size: bfs  
+
+  dt
+  dd
+    padding: blh*.25
+    width: auto
+
+  dt
+    color: #fff
+    background: color.hairline
+
+  dd
+    margin-right: blh*.5
+    padding-right: blh*.5
+    border-right: 1px dashed color.hairline
+    
+    &:last-child
+      border: 0

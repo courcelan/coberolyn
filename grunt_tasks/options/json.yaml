@@ -1,0 +1,5 @@
+models:
+  options:
+    namespace: 'models'
+  src: ['<%= build.js %>**/*.json']
+  dest: '<%= build.js %>models/data.js'

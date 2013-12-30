@@ -1,0 +1,18 @@
+# copy static files to build locations
+vendor:
+  files:
+    -
+      expand: true
+      cwd: "<%= src.vendor %>"
+      src: "**"
+      dest: "<%= build.vendor %>"
+      filter: 'isFile'
+
+assets:
+  files:
+    -
+      expand: true
+      cwd: "<%= src.assets %>"
+      src: "**"
+      dest: "<%= build.assets %>"
+      filter: 'isFile'

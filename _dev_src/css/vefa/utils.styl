@@ -1,0 +1,334 @@
+// 4.0 Utilities
+// Based off of SUIT-CSS by Nicolas Gallagher [https://github.com/suitcss/suit]
+// Extended for use with Vefa, includes additional functionality
+//
+// These are declared as placeholder values, which can be extended on per-need
+// basis. Stylus functions are declared to call groups of needed elements as
+// desired. Call utils() to output all utilities as classes
+
+// ==========================================================================
+// 4.0 All utilities
+//
+// Call all utilities into CSS/Stylus file
+//
+// @namespace (str) - defines a prefix to the calssname
+// @classBased (boolean) - defines whether to run all as classes or as extensions
+//
+utils(namespace="u-", classBased=true)
+  prefix = "." if classBased is true
+  prefix = "$" if classBased is false
+
+
+
+  // ==========================================================================
+  // 4.1 Vertical Alignment
+  //
+  // Vertical alignment utilities, needed `inline-block` or `inline` declaration.
+  //
+  //
+  {prefix}{namespace}alignTop
+    vertical-align: top
+  
+  {prefix}{namespace}alignMiddle
+    vertical-align: middle
+
+  {prefix}{namespace}alignBaseline
+    vertical-align: baseline
+
+  {prefix}{namespace}alignBottom
+    vertical-align: bottom
+
+
+
+  // ==========================================================================
+  // 4.2 New block formatting context
+  //
+  // It won't wrap under floats. and contains floated children. 
+  //
+  //
+  {prefix}{namespace}context
+    overflow: hidden  
+
+  {prefix}{namespace}context-alt
+    display: table-cell /* Create a new block formatting context (NBFC) */ 
+    width: 10000px /* Avoid shrink-wrap behaviour of table-cell. */
+
+
+
+  // ==========================================================================
+  // 4.3 Floats
+  //
+  // Basic Floats along with version that includes a bit of margin
+  //
+  //
+  {prefix}{namespace}pullLeft
+    float: left
+
+  {prefix}{namespace}pullRight
+    float: right
+
+  {prefix}{namespace}objLeft
+    float: left
+    margin-right: blh*.5
+
+  {prefix}{namespace}objRight
+    float: right
+    margin-left: blh*.5
+
+  {prefix}{namespace}pullLeft,
+  {prefix}{namespace}pullRight,
+  {prefix}{namespace}objLeft,
+  {prefix}{namespace}objRight
+    + *
+      display: block  
+
+  {prefix}{namespace}objLeft,
+  {prefix}{namespace}objRight 
+    img
+      display: block /* Remove excess space below images */
+      max-width: none /* Guard against `img {max-width:100%}` (IE8 fix) */    
+
+
+
+  // ==========================================================================
+  // 4.4 Item fill
+  //
+  // Assign elment to "fill" its boundaries
+  //
+  //
+  {prefix}{namespace}itemFill
+    display: block
+    height: 100%
+    width:100%
+
+
+
+  // ==========================================================================
+  // 4.5 Reverse Layout
+  //
+  // This adds a `text-align: right` to element to arrange its children.
+  //
+  // Pedantic:
+  // Should only be used for layout utility of item groups, pushing children to
+  // the right instead of floating everything. Keep actual text-align within 
+  // components to align text to the right.
+  //
+  //  
+  {prefix}{namespace}reverse
+    text-align: right
+
+
+
+  // ==========================================================================
+  // 4.6 Balance Layout
+  //
+  // Children elements fill parent space evenly. Overflow spills to next line. If
+  // children elements do not fill space, they left align
+  //
+  // See http://codepen.io/patrickkunka/pen/GECBF
+  // 
+  // Pedantic: doesn't make sense to use for actual text.
+  //
+  // Caveat: 
+  // Does not appear to affect <img>s on their own. They need a wrapping element.
+  //
+  // Errata:
+  // This originally was called u-justify
+  //
+  //
+  {prefix}{namespace}balance
+    line-height: 1
+    text-align: justify
+    text-justify: distribute-all-lines
+
+    &:after
+      content: ""
+      position: static
+      display: inline-block
+      width: 100%
+
+
+
+  // ==========================================================================
+  // 4.6 Accessibility
+  //
+  // Simple Accessibility hide feature. Completely remove from document flow, but
+  // leave available to screen readers.
+  //
+  // Follows long name code convention: a-one-one-y, not ally
+  //
+  //
+  {prefix}{namespace}a11y
+    position: absolute !important
+    width: 0
+    clip: rect(0,0,0,0)
+
+
+
+  // ==========================================================================
+  // 4.7 Show/Hide
+  //
+  // Hide or show items from screen. 
+  //
+  //
+  /* Completely remove from the flow and screen readers.*/
+  {prefix}{namespace}isHidden
+    display: none
+    visibility: hidden
+
+  {prefix}{namespace}isInvisible 
+    visibility: hidden
+
+  {prefix}{namespace}isVisible
+    visibility: visible
+
+
+
+  // ==========================================================================
+  // 4.8 Text truncation
+  //
+  //  Prevent text from wrapping onto multiple lines, and truncate with an
+  //  ellipsis.
+  //
+  //
+  {prefix}{namespace}truncate
+    max-width: 100%
+    overflow: hidden
+    text-overflow: ellipsis
+    white-space: nowrap
+    word-wrap: normal
+
+
+
+  // ==========================================================================
+  // 4.9 Word breaking
+  //
+  // Break strings when their length exceeds the width of their container. Useful
+  // for exposed link urls
+  //
+  //
+  {prefix}{namespace}textBreak
+    word-wrap: break-word
+
+
+
+  // ==========================================================================
+  // 4.10 Flexible media embeds
+  //
+  // Use on elements that need to retain a specific aspect ratio but adapt to
+  // width of container
+  //
+  //
+  {prefix}{namespace}embed
+  {prefix}{namespace}embed-16by9
+  {prefix}{namespace}embed-4by3
+    position: relative
+    overflow: hidden
+    height: 0
+    padding: 0
+
+  {prefix}{namespace}embed-16by9
+    padding-bottom: 56.25%
+
+  {prefix}{namespace}embed-4by3
+    padding-bottom: 75%
+
+  {prefix}{namespace}embed--item
+    position: absolute
+    top: 0
+    left: 0
+    height: 100%
+    width: 100%
+
+
+
+  // ==========================================================================
+  // 4.11 Arrange children
+  //
+  // Lay out a row of children in various ways. Specify whether a child should be
+  // wide enough to fit its content, or take up remaining space in the parent.
+  // Also possible to give all children an equal width, and to control vertical
+  // alignment.
+  // 
+  // Caveat:
+  // - `Arrange` may only contain `arrange--itemFit` & `arrange--itemFill` children
+  // - Use one `arrange--itemFill` per instance. First `arrange--itemFill` in
+  // source order will not share extra space with subsequent nodes of that class.
+  // - Recommended to "install" as a group
+  //
+  //
+  {prefix}{namespace}arrange
+  {prefix}{namespace}arrange-middle
+  {prefix}{namespace}arrange-bottom
+  {prefix}{namespace}arrange-equal
+    display: table
+    margin: 0
+    padding: 0
+    table-layout: auto
+    width: 100%
+
+  {prefix}{namespace}arrange--itemFill
+  {prefix}{namespace}arrange--itemFit
+    display: table-cell
+    padding: 0
+    vertical-align: top
+
+  {prefix}{namespace}arrange--itemFill /* fills remaining space */
+    width: 100%
+
+    img
+      height: auto
+      max-width: 100%
+
+  {prefix}{namespace}arrange-itemFit img /* can not be responsive or will break layout */
+    max-width: none !important
+    width: auto !important
+
+  {prefix}{namespace}arrange-middle
+    
+    {prefix}{namespace}arrange--itemFill
+    {prefix}{namespace}arrange--itemFit
+      vertical-align: middle
+
+  {prefix}{namespace}arrange-bottom
+    
+    {prefix}{namespace}arrange--itemFill
+    {prefix}{namespace}arrange--itemFit
+      vertical-align: bottom
+
+  {prefix}{namespace}arrange-equal
+    table-layout: fixed
+
+    > {prefix}{namespace}arrange--itemFill
+    > {prefix}{namespace}arrange--itemFit
+      width: auto
+
+  // ==========================================================================
+  // 4.12 Layers
+  //
+  // Layers add pseudo elements to each element they are declared on. By assigning
+  // empty content element, we can use these pseudo elements as "graphics" layers
+  // and a multi-purpose tool. 
+  //
+  // As a graphics layer, these help designers/developers keep a good baseline
+  // rhythm to the content. We can push and pull the edges on the pseudo to
+  // position the background exactly how we may want it.
+  //
+  // Examples (in stylus files):
+  //
+  //     .element
+  //        @extend $layers
+  //
+  // TODO: look at projects over time and see to include default edge positions
+  $layers
+    position: relative
+    z-index: 1
+
+    &::after,
+    &::before
+      content: ""
+      display: block
+      position: absolute
+      z-index: -1
+
+

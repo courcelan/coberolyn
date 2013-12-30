@@ -1,0 +1,52 @@
+// VESTIGIAL
+// does not currently work as we've moved on from this style grid pattern
+
+// dev-layout
+// applies a fixed grid background with horizontal columns and
+// baseline grid
+//
+// @extra
+// apply class "cmp" to element (typically body) to set up space for 
+// working on individual components
+//
+// @var
+// orientation: set to center/left/right for columns
+// fade: set alpha value for columns
+// color: set color value for columns
+//
+// @TODO
+// 1. currently just a fixed grid, set up for a fluid grid
+//
+//
+dev-layout( orientation = left, fade = 50%, color = #eeeeee, gridset = grid, vertical = baseline) //for fixed width
+  if is-dev
+    //  applies both a fixed or fluid grid background
+    //  and a baseline grid background for layout purposes
+    gutter = gridset[2]
+    colColor = rgba( color, fade)
+    bColor = darken( color, 20%)
+
+    module_width = gridset[1]
+    gtr = unit((gutter/2), "px")
+    endCell = unit(module_width+gutter, "px")
+    startMod = unit(module_width+gtr, "px")
+
+    stop1 = s("transparent %s", gtr)
+    stop2 = s("%s %s", colColor, gtr)
+    stop3 = s("%s %s", colColor, startMod)
+    stop4 = s("transparent %s", startMod)
+    stop5 = s("transparent %s", endCell)
+    gridStd = s("%s, %s, %s, %s, %s", stop1, stop2, stop3, stop4, stop5)
+
+    // baseline grid
+    baselineStd = s("%s 1px, transparent 1px", bColor)
+
+    // choose implementation depending on grid style
+    bkgSize = s("%s %s", rem(endCell), rem(vertical))
+
+    background-image: -webkit-linear-gradient( left, gridStd ), -webkit-linear-gradient( baselineStd )
+    background-position: top orientation
+    background-repeat: repeat
+    vendor("background-size", bkgSize);
+    background-attachment: scroll
+    color: #000

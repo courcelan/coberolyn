@@ -1,0 +1,85 @@
+// 10.0 Modulations
+// Overloads for transitions and animations
+
+
+// ==========================================================================
+// 10.1 State change
+// 
+// Overload CSS transition property to include needed browser prefixes
+//
+//
+change-state()
+  -webkit-transform: translateZ(0) /* kicks in hardware accel */
+  -webkit-transition: arguments
+  transition: arguments
+
+
+
+// ==========================================================================
+// 10.2 Backplate Visibility
+// 
+// Overload CSS backplate-visibility property to include needed browser prefixes
+//
+//
+backface-visibility(style="hidden")
+  -webkit-transform: translate3d(0,0,0) /* stops flickering */
+  -moz-backface-visibility: arguments
+  -ms-backface-visibility: arguments
+  -webkit-backface-visibility: arguments
+
+
+
+// ==========================================================================
+// 10.3 Transform
+// 
+// Overload CSS transform property to include needed browser prefixes
+//
+//
+transform()
+  -webkit-transform: translate3d(0,0,0) // kicks in hardware accel
+  -ms-transform: arguments
+  -webkit-transform: arguments
+  transform: arguments
+
+
+
+// ==========================================================================
+// 10.3 Transition Duration
+// 
+// Overload CSS transition-duration proprerty to include needed browser prefixes
+//
+// @t (time) - length of duration in seconds. defaults to .5s, no need for unit
+//
+transition-duration( t = ".5s")
+  -webkit-transition-duration: unit(t, "s")
+  transition-duration: unit(t, "s")
+
+
+
+// ==========================================================================
+// 10.4 Transition Origin
+// 
+// Overload CSS transform-origin property to include needed browser prefixes
+//
+//
+transform-origin()
+  -ms-transform-origin: arguments
+  -webkit-transform-origin: arguments
+  transform-origin: arguments
+
+
+
+// ==========================================================================
+// 10.5 Transition Style
+// 
+// Overload CSS transform-style property to include needed browser prefixes
+//
+// @styl (string) - defaults to "preserve-3d", which is typically the only value
+//                  you need here
+//
+//
+transform-style(styl = "preserve-3d")
+  -moz-transform-style: arguments
+  -ms-transform-style: arguments
+  -webkit-transform-style: arguments
+  transform-style: arguments

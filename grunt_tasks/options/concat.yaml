@@ -1,0 +1,13 @@
+# concatenate files
+options:
+  banner: |
+    /*! 
+    <%= pkg.name %>::v<%= pkg.version %> 
+    */  
+
+js:
+  # the files to concatenate
+  files: 
+    '<%= build.js %>main.js' :
+      - '<%= build.js %>models/*.js'
+      - '<%= build.js %>game/**/*.js'

@@ -1,0 +1,4 @@
+#open URL for testing and development
+dev:
+  path: 'http://0.0.0.0:1515'
+  app: 'Google Chrome'

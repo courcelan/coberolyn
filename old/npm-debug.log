@@ -1,0 +1,173 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'node', '/usr/local/bin/npm', 'install', '-g', 'roots' ]
+2 info using npm@1.3.11
+3 info using node@v0.10.19
+4 verbose cache add [ 'roots', null ]
+5 verbose cache add name=undefined spec="roots" args=["roots",null]
+6 verbose parsed url { protocol: null,
+6 verbose parsed url   slashes: null,
+6 verbose parsed url   auth: null,
+6 verbose parsed url   host: null,
+6 verbose parsed url   port: null,
+6 verbose parsed url   hostname: null,
+6 verbose parsed url   hash: null,
+6 verbose parsed url   search: null,
+6 verbose parsed url   query: null,
+6 verbose parsed url   pathname: 'roots',
+6 verbose parsed url   path: 'roots',
+6 verbose parsed url   href: 'roots' }
+7 silly lockFile e2b4a430-roots roots
+8 verbose lock roots /Users/Cobey/.npm/e2b4a430-roots.lock
+9 silly lockFile e2b4a430-roots roots
+10 silly lockFile e2b4a430-roots roots
+11 verbose addNamed [ 'roots', '' ]
+12 verbose addNamed [ null, '*' ]
+13 silly lockFile 734ea7ee-roots roots@
+14 verbose lock roots@ /Users/Cobey/.npm/734ea7ee-roots.lock
+15 silly addNameRange { name: 'roots', range: '*', hasData: false }
+16 verbose url raw roots
+17 verbose url resolving [ 'https://registry.npmjs.org/', './roots' ]
+18 verbose url resolved https://registry.npmjs.org/roots
+19 info trying registry request attempt 1 at 11:39:04
+20 verbose etag "BB5U513E4O0371PHPZR4RIJ1P"
+21 http GET https://registry.npmjs.org/roots
+22 http 304 https://registry.npmjs.org/roots
+23 silly registry.get cb [ 304,
+23 silly registry.get   { server: 'CouchDB/1.3.1 (Erlang OTP/R15B03)',
+23 silly registry.get     etag: '"BB5U513E4O0371PHPZR4RIJ1P"',
+23 silly registry.get     date: 'Fri, 27 Sep 2013 15:39:03 GMT',
+23 silly registry.get     'content-length': '0' } ]
+24 verbose etag roots from cache
+25 silly addNameRange number 2 { name: 'roots', range: '*', hasData: true }
+26 silly addNameRange versions [ 'roots',
+26 silly addNameRange   [ '0.0.8-6',
+26 silly addNameRange     '0.0.8-7',
+26 silly addNameRange     '0.0.8-8',
+26 silly addNameRange     '0.0.8-9',
+26 silly addNameRange     '0.0.9',
+26 silly addNameRange     '0.0.9-1',
+26 silly addNameRange     '0.0.9-2',
+26 silly addNameRange     '0.0.9-3',
+26 silly addNameRange     '1.0.0',
+26 silly addNameRange     '1.0.1',
+26 silly addNameRange     '1.0.1-1',
+26 silly addNameRange     '1.0.1-2',
+26 silly addNameRange     '1.0.1-3',
+26 silly addNameRange     '1.0.2',
+26 silly addNameRange     '1.0.2-1',
+26 silly addNameRange     '1.0.3',
+26 silly addNameRange     '1.0.3-1',
+26 silly addNameRange     '1.0.4',
+26 silly addNameRange     '1.1.0',
+26 silly addNameRange     '1.1.1',
+26 silly addNameRange     '1.1.2',
+26 silly addNameRange     '1.2.1',
+26 silly addNameRange     '1.2.2',
+26 silly addNameRange     '1.2.3',
+26 silly addNameRange     '1.2.4',
+26 silly addNameRange     '1.2.4-1',
+26 silly addNameRange     '1.2.4-2',
+26 silly addNameRange     '1.2.4-3',
+26 silly addNameRange     '1.3.0',
+26 silly addNameRange     '1.3.1',
+26 silly addNameRange     '1.3.2',
+26 silly addNameRange     '1.3.3',
+26 silly addNameRange     '1.3.4',
+26 silly addNameRange     '1.3.5',
+26 silly addNameRange     '1.3.6',
+26 silly addNameRange     '1.3.6-1',
+26 silly addNameRange     '1.3.6-2',
+26 silly addNameRange     '1.3.6-3',
+26 silly addNameRange     '1.3.6-4',
+26 silly addNameRange     '2.0.0',
+26 silly addNameRange     '2.0.1',
+26 silly addNameRange     '2.0.2',
+26 silly addNameRange     '2.0.3',
+26 silly addNameRange     '2.0.4',
+26 silly addNameRange     '2.0.5',
+26 silly addNameRange     '2.0.6',
+26 silly addNameRange     '2.1.0' ] ]
+27 verbose addNamed [ 'roots', '2.0.6' ]
+28 verbose addNamed [ '2.0.6', '2.0.6' ]
+29 silly lockFile 1b64af29-roots-2-0-6 roots@2.0.6
+30 verbose lock roots@2.0.6 /Users/Cobey/.npm/1b64af29-roots-2-0-6.lock
+31 silly lockFile 1b64af29-roots-2-0-6 roots@2.0.6
+32 silly lockFile 1b64af29-roots-2-0-6 roots@2.0.6
+33 silly lockFile 734ea7ee-roots roots@
+34 silly lockFile 734ea7ee-roots roots@
+35 silly resolved [ { name: 'roots',
+35 silly resolved     version: '2.0.6',
+35 silly resolved     description: 'roots is a toolbox for building simple, beautiful, and efficient products for the web',
+35 silly resolved     keywords: [ 'front-end', 'development', 'css', 'build', 'library', 'tool' ],
+35 silly resolved     homepage: 'http://roots.cx',
+35 silly resolved     bugs: { url: 'https://github.com/jenius/roots/issues' },
+35 silly resolved     author: { name: 'Jeff Escalante' },
+35 silly resolved     main: 'lib',
+35 silly resolved     bin: { roots: 'bin/roots' },
+35 silly resolved     repository: { type: 'git', url: 'git://github.com/jenius/roots.git' },
+35 silly resolved     dependencies:
+35 silly resolved      { connect: '2.9.x',
+35 silly resolved        colors: '0.6.x',
+35 silly resolved        open: '0.0.x',
+35 silly resolved        monocle: '1.1.x',
+35 silly resolved        readdirp: '0.3.x',
+35 silly resolved        mkdirp: '0.3.x',
+35 silly resolved        stylus: '0.37.x',
+35 silly resolved        jade: '0.35.x',
+35 silly resolved        snockets: '1.3.x',
+35 silly resolved        marked: '0.2.x',
+35 silly resolved        ejs: '0.8.x',
+35 silly resolved        'coffee-script': '1.6.x',
+35 silly resolved        'clean-css': '1.1.x',
+35 silly resolved        'uglify-js': '2.4.x',
+35 silly resolved        bower: '1.2.x',
+35 silly resolved        async: '0.2.x',
+35 silly resolved        'axis-css': '0.0.x',
+35 silly resolved        underscore: '1.5.x',
+35 silly resolved        shelljs: '0.2.x',
+35 silly resolved        q: '0.9.x',
+35 silly resolved        minimatch: '0.2.x',
+35 silly resolved        ftp: '0.3.x',
+35 silly resolved        'js-yaml': '2.1.x',
+35 silly resolved        semver: '2.1.x',
+35 silly resolved        'faye-websocket': '0.6.x',
+35 silly resolved        'copy-paste': '0.0.x',
+35 silly resolved        'cli-js': '0.0.x',
+35 silly resolved        'update-notifier': '~0.1.3',
+35 silly resolved        optimist: '0.6.x',
+35 silly resolved        nib: '1.0.x',
+35 silly resolved        prettyjson: '0.8.x' },
+35 silly resolved     devDependencies: { mocha: 'latest', should: 'latest' },
+35 silly resolved     man: [ './setup/man/roots.1' ],
+35 silly resolved     engines: { node: '>=0.8.0' },
+35 silly resolved     preferGlobal: true,
+35 silly resolved     scripts: { test: 'mocha' },
+35 silly resolved     readme: '<p align="center"><a><img src="http://cl.ly/PqFy/logo.png" /></a></p>\n\n<p align="center">\n  <a title=\'NPM version\' href="http://badge.fury.io/js/roots">\n    <img src=\'https://badge.fury.io/js/roots.png\' />\n  </a>\n  <a title=\'Build Status\' href="https://travis-ci.org/jenius/roots">\n    <img src=\'https://travis-ci.org/jenius/roots.png?branch=master\' />\n  </a>\n  <a title=\'Dependency Status\' href="https://david-dm.org/jenius/roots">\n    <img src=\'https://david-dm.org/jenius/roots.png\' />\n  </a>\n</p>\n\nA light, super fast, and intuitive static build system made for front end development and building web apps.\n\nInstallation\n------------\n\nMake sure you have [node.js](http://nodejs.org/) installed, then just run `npm install roots -g` and you\'ll be all set.\n\nUsage\n-----\n\nOnce you have roots installed, you can use the command line to wrangle your project. You must be at least somewhat familiar with the command line to be able to use roots. All the possible commands and options are explained clearly on the [man page](http://roots.cx/docs/man.html).\n\n<p align="center"><a><img src="https://raw.github.com/slang800/psychic-ninja/master/terminal.png"/></a></p>\n\nGetting Started\n---------------\n\nAll roots tutorials and resources that are recommended by the core team are listed below:\n\n- [official roots tutorials](http://roots.cx#tutorials) - walkthroughs of roots\' major functionality    \n- [official roots documentation](http://roots.cx/docs) - documentation for major roots features and functionality\n\nDocumentation\n-------------\n\nAll documentation can be found on [http://roots.cx](http://roots.cx).    \nIf you are looking for roots docs, see [http://roots.cx/docs](http://roots.cx).    \nIf you are after the docs for the css library, [axis](https://github.com/jenius/axis), see [http://roots.cx/axis](http://roots.cx/axis).\n\nHelp\n----\n\nIf you are confused and/or having trouble, one of the solutions below will almost certainly get you back on your feet:\n\n- Consult [the docs](http://roots.cx/docs)\n- File [an issue](https://github.com/jenius/roots/issues)\n- Ask us in the official IRC channel on freenode, **#roots-dev**\n- [Tweet at me](http://twitter.com/jescalan), and we\'ll work it out\n\n\nThe Future\n----------\n\nSee the [issues](https://github.com/jenius/roots/issues) for discussion of upcoming features and additions. Roots is very actively developed and is moving forward at a rapid pace. Our goal is to push static sites and "single page apps" as far as they can possibly go, and we\'re well on the way.\n\nContributors\n------------\n\nI would love to have more contributors, and if you\'ve helped out, you are awesome. I want to give a huge thanks especially to these people:\n\n- [Sam Saccone](https://github.com/samccone)\n- [Sean Lang](https://github.com/slang800)\n- [Declan de Wet](https://github.com/declandewet)\n- [Everyone else](https://github.com/jenius/roots/contributors)\n\nWe are very open to new people getting involved and contributing. Come chat with us on IRC at freenode/#roots-dev if this seems like your kind of jam.\n\nCoding Style\n------------\nTo keep a consistant coding style in the project, we\'re going with [Felix\'s Node.js Style Guide](http://nodeguide.com/style.html) for JS and [Polar Mobile\'s guide](https://github.com/polarmobile/coffeescript-style-guide) for CoffeeScript, but it should be noted that much of this project uses under_scores rather than camelCase for naming. Both of these are pretty standard guides. For documenting in the code, we\'re using [JSDoc](http://usejsdoc.org/).\n\nLicense (MIT)\n-------------\n\nPermission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:\n\nThe above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.\n\nTHE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.\n',
+35 silly resolved     readmeFilename: 'readme.md',
+35 silly resolved     _id: 'roots@2.0.6',
+35 silly resolved     _from: 'roots@' } ]
+36 info install roots@2.0.6 into /usr/local/lib
+37 info installOne roots@2.0.6
+38 info /usr/local/lib/node_modules/roots unbuild
+39 info /usr/local/lib/node_modules/roots unbuild
+40 error error rolling back Error: EACCES, unlink '/usr/local/lib/node_modules/roots/node_modules'
+40 error error rolling back  roots@2.0.6 { [Error: EACCES, unlink '/usr/local/lib/node_modules/roots/node_modules']
+40 error error rolling back   errno: 3,
+40 error error rolling back   code: 'EACCES',
+40 error error rolling back   path: '/usr/local/lib/node_modules/roots/node_modules' }
+41 error Error: EACCES, unlink '/usr/local/lib/node_modules/roots/node_modules'
+41 error  { [Error: EACCES, unlink '/usr/local/lib/node_modules/roots/node_modules']
+41 error   errno: 3,
+41 error   code: 'EACCES',
+41 error   path: '/usr/local/lib/node_modules/roots/node_modules' }
+42 error Please try running this command again as root/Administrator.
+43 error System Darwin 12.5.0
+44 error command "node" "/usr/local/bin/npm" "install" "-g" "roots"
+45 error cwd /Volumes/Wellfire/coberolyn
+46 error node -v v0.10.19
+47 error npm -v 1.3.11
+48 error path /usr/local/lib/node_modules/roots/node_modules
+49 error code EACCES
+50 error errno 3
+51 error stack Error: EACCES, unlink '/usr/local/lib/node_modules/roots/node_modules'
+52 verbose exit [ 3, true ]

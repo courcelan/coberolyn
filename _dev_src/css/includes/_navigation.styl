@@ -1,0 +1,48 @@
+// NAVIGATION
+// ==========================================================================
+// specialized collections that act as navigation
+// ==========================================================================
+
+// ==========================================================================
+// Navigation wrapper
+// 
+// Class for nav wrapper that holds nav-pri and nav-gbl
+.navbar
+  display: none
+  position: absolute
+  edges: blh*16 0 auto
+  z-index: 20
+
+
+$nav--link
+  @extend $bodystack
+  padding: 0 blh
+  font-size: 32px
+  font-weight: 900
+  color: #EEF2D1
+
+// ==========================================================================
+// Primary Navigation
+// 
+// Classes for primary navigation (main navigation near top of page, shown on all pages)
+.nav-pri--link
+  @extend $nav--link
+ 
+// ==========================================================================
+// Extended Navigation
+// 
+// Classes for extended navigation (usually in footer, shown on all pages)
+
+
+// ==========================================================================
+// Global Navigation
+// 
+// Classes for global navigation (non-sectional pages, appears on all pages)
+.nav-gbl--link
+  @extend $nav--link
+
+
+// ==========================================================================
+// Local Navigation
+// 
+// Classes for local navigation (appears on most branch/leaf pages)

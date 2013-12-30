@@ -1,0 +1,17 @@
+# process yaml to json
+test:
+  options:
+    disableDest: true
+    middleware: (response, json) ->
+      console.log response
+      console.log json
+    space: 2
+  files:
+    '<%= build.js %>**/*.js': '<%= src.js %>**/*.yaml'
+dev:
+  files:
+    - expand: true
+      cwd: '<%= src.js %>app/'
+      src: '**/*.model.yaml'
+      dest: '<%= build.js %>'
+      ext: ".json"

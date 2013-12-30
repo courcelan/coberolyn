@@ -1,0 +1,30 @@
+# process coffeescript to JS
+files: 
+  - # vefa
+    expand: true
+    cwd: "<%= src.js %>vefa/"
+    src: "**/*.coffee"
+    dest: "<%= build.js %>vefa/"
+    ext: ".js"
+
+  - # general
+    expand: true
+    cwd: "<%= src.js %>app/"
+    src: ["**/*.coffee", "!**/*.spec.coffee"]
+    dest: "<%= build.js %>"
+    ext: ".js"
+
+  - # main
+    '<%= build.js %>main.js': '<%= src.js %>main.coffee'
+
+
+dev:
+  options:
+    bare: true
+    join: true
+  files: '<%= coffee.files %>'
+
+deploy:
+  options:
+    join: true
+  files: '<%= coffee.files %>'

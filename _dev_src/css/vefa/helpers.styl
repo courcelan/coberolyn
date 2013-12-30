@@ -1,0 +1,78 @@
+// 1.0 General Helpers
+
+// ==========================================================================
+// 1.1 Percentage
+//
+// Find a percentage width based on target and reference widths.
+// Setting `vefa.use.px` to true will return value in px,
+// rather than in a percentage. This is useful for targeting IE.
+//
+// @numerator - target width
+// @denominator - target width's parents width
+//
+// Compatible in IE6+, Firefox3+, Safari, Chrome, Opera
+//
+// Examples:
+//
+//    width: pct(50px, 275px) // returns 18.181818182%
+//
+//
+pct( numerator, denominator )
+  if (vefa.use.px is defined and vefa.use.px)
+    return unit(numerator, "px")
+  else
+    return unit( (numerator/denominator) * 100, "%")
+
+
+
+// ==========================================================================
+// 1.2 REMs
+//
+// Find the rem value based on target and root width (recommend a base of 10px).
+// Setting `vefa.use.rem` to false will return value in px, rather than in REMs.
+// This is useful for targeting IE8, which doesn't understand REMs.
+// 
+// Used in CSS overloads to return computed REM values without needing to 
+// individually assign.
+//
+// @size_value - size unit in PX only. `auto`, 0, `inherit`, `rem`, `em`, etc
+// are passed on
+//
+// Examples:
+//
+//    font-size: rem(12px) // returns 1.2rem
+//
+//
+rem( size_value )
+  if vefa.use.rem
+    if (size_value == "auto") or (size_value is 0) or (size_value == "inherit")
+      size_value
+    else if (typeof(size_value) is "unit" and unit(size_value) != "px")
+      size_value
+    else
+      rem_value = (size_value/10)
+      unit(rem_value, 'rem')
+  
+  else
+    size_value
+
+
+
+// ==========================================================================
+// 1.3 Dev mixin
+//
+// helps for layout and alignment on vertical and horizontal grid does not
+// add to width and height; sits one pixel outside of actual width and height.
+// Additionally, a background is added based on the content box, enabling
+// visualization of element padding.
+//
+// @color - set color value for outline, defaults to red
+// @bkg - show helpful background, defaults to true
+//
+//
+dev( color=red, bkg=true )
+  outline: 1px solid color
+  
+  if bkg
+    background-color: rgba(red, 50%)
+    background-clip: content

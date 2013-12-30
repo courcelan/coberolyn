@@ -1,0 +1,9 @@
+#HARPjs server
+server:
+  server: true
+  source: "<%= src.base %>"
+  globals:
+    title: "Yo"
+dist:
+  source: "<%= src.base %>"
+  dest: "harp-production"

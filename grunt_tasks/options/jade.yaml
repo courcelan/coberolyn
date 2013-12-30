@@ -1,0 +1,25 @@
+# process jade files
+options:
+  pretty: true
+  client: false
+  amd: false
+
+files:
+  expand: true
+  cwd: "<%= src.html %>"
+  src: ['**/*.jade', '!**/_*.jade']
+  dest: "<%= build.html %>"
+  ext: ".html"   
+
+dev:
+  options:
+    data: "<%= jade_data %>"
+  files:
+    - '<%= jade.files %>'
+
+deploy:
+  options:
+    pretty: false
+    data: "<%= jade_data %>"
+  files: 
+    - '<%= jade.files %>'

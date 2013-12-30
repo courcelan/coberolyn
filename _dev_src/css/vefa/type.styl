@@ -1,0 +1,71 @@
+// 7.0 Type
+// Font sizing and line height are overloaded in 2.0 CSS Overloads. This sets up
+// font-face loader and other helpful type mixins/functions as they become
+// available
+
+
+// ==========================================================================
+// 7.1 Font-load
+// 
+// load a font-face with a FontSpring bulletproof font declaration
+//
+// @font_name - user defined font family name to be called
+// @file - the file and its location. no file type
+// @type - otf or ttf
+// @woff - declares whether woff is included in markup 
+//         (if not available, best to remove it because of 404 errors)
+//
+//
+font-load( font_name = 'FF1', file, type = 'otf', woff = true)
+  @font-face
+    font-family: font_name
+    src: url( file +'.eot' ) //IE9 Compat
+    // if woff
+    src: url( file +'.eot?' ) format("embedded-opentype"), url( file +'.woff' ) format("woff"), url( file +'.otf' ) format("opentype") if type is 'otf' && woff is true
+    src: url( file +'.eot?' ) format("embedded-opentype"), url( file +'.woff' ) format("woff"), url( file +'.ttf' ) format("truetype") if type is 'ttf' && woff is true
+    // if no woff
+    src: url( file +'.eot?' ) format("embedded-opentype"), url( file +'.otf' ) format("opentype") if type is 'otf' && woff is false
+    src: url( file +'.eot?' ) format("embedded-opentype"), url( file +'.ttf' ) format("truetype") if type is 'ttf' && woff is false
+
+
+
+// ==========================================================================
+// 7.2 Default font stacks
+// 
+// Listing of basic (and best supported) font-stacks out of the box for use on
+// sites. See http://unitinteractive.com/blog/2008/06/26/better-css-font-stacks/
+//
+//
+arial = Arial, "Helvetica Neue", Helvetica, sans-serif
+baskerville = Baskerville, times
+baskervilleTitle = Baskerville, Times, "Times New Roman", serif
+cambria = Cambria, georgia
+centurygothic = "Century Gothic", "Apple Gothic", sans-serif
+consolas = Consolas, "Lucida Console", monaco
+copperplate = "Copperplate", "Copperplate Gothic Light", serif
+courier = "Courier New", Courier, monospace
+franklin = "Franklin Gothic Medium", "Arial Narrow Bold", arial
+futura = Futura, centurygothic
+garamond = Garamond, "Hoefler Text", times
+garamondTitle = Garamond, "Hoefler Text", Palatino, "Palatino Linotype", serif
+geneva = Geneva, lucidasans
+genevaTitle = Geneva, Verdana, lucidasans
+georgia = Georgia, Palatino, "Palatino Linotype", times
+georgiaTitle = Georgia, times
+gillsans = "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif
+gillsansTitle = "Gill Sans", "Gill Sans MT", "Trebuchet MS", Calibri, sans-serif
+gillsansBold = "GillSans-Bold", "Gill Sans MT-Bold", Calibri, "Trebuchet MS", sans-serif
+helvetica = "Helvetica Neue", Arial, Helvetica, sans-serif
+helveticaTitle = Helvetica, "Helvetica Neue", Arial, sans-serif
+impact = Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif
+lucidasans = "Lucida Sands", "Lucida Grande", "Lucida Sans Unicode", sans-serif
+monaco = Monaco, courier
+palatino = Palatino, "Palatino Linotype", georgiaTitle
+palatinoTitle = Palatino, "Palatino Linotype", "Hoefler Text", times
+tahoma = Tahoma, Geneva, Verdana
+tahomaTitle = Tahoma, Verdana, Geneva
+times = "Times New Roman", Times, serif
+trebuchet = "Trebuchet MS", lucidasans
+trebuchetTitle = "Trebuchet MS", Tahoma, Arial, sans-serif
+verdana = Verdana, Geneva, Tahoma, sans-serif
+verdanaTitle = Verdana, Tahoma, Geneva, sans-serif

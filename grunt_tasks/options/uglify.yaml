@@ -1,0 +1,16 @@
+# minify js
+options:
+  # the banner is inserted at the top of the output
+  banner: | 
+    /*******************
+    <%= banner_info %>
+    ********************/
+
+deploy:
+  files:
+    - #js
+      expand: true
+      cwd: "<%= build.js %>"
+      src: "**/*.js"
+      dest: "<%= build.js %>"
+      ext: ".js"

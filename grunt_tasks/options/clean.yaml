@@ -1,0 +1,23 @@
+# clean out extra files
+# DESTRUCTIVE
+deploy: 
+  # remove vefa (its concat into main js file)
+  - '<%= build.js %>vefa'
+
+  - '<%= build.js %>app'
+  - '<%= build.js %>models'
+
+  # remove vendor concat (don't need)
+  - '<%= build.vendor %>vendor.js'
+
+  # remove test-mock framework (not needed for production)
+  - '<%= build.js %>**/*.spec.js'
+  - '<%= build.vendor %>angular-mocks'
+
+  # get rid of extra modernizr files
+  - '<%= build.vendor %>modernizr/feature-detects'
+  - '<%= build.vendor %>modernizr/media'
+  - '<%= build.vendor %>modernizr/test'
+
+pre_build: 
+  - '<%= build.base %>'

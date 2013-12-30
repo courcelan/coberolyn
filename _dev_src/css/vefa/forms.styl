@@ -1,0 +1,144 @@
+// 6.0 Form resets
+// Simple mixins to run to default form elements to introduce basic consistency
+// across browsers
+// (TODO) - possibly include ordered-form system into structure
+
+// ==========================================================================
+// 6.1 Reset form
+// 
+// general form resets and baselinesload a font-face with a FontSpring bulletproof font declaration
+
+reset-form()
+  
+  // button, input, select, textarea
+  form
+    :focus
+      outline: 0
+
+  fieldset
+    border: 0
+
+
+
+// ==========================================================================
+// 6.1 Reset form
+// 
+// Reset some form elements (button, input, select, textarea)
+//
+//
+reset-inputs()
+  [disabled]
+    cursor: default
+
+  button,
+  input,
+  select,
+  textarea
+    position: relative
+    display: inline-block
+    width: 100%
+    vertical-align: top
+    font-family: body-stack-mobile
+    font-size: basesize
+    line-height: base-line-height
+    border: 0
+    border-radius: 0
+
+  button,
+  input
+    &::-moz-focus-inner
+      padding: 0
+      border: 0
+
+  button
+    cursor: pointer
+
+  input
+    height: base-line-height
+    margin: 0
+
+    &[type="checkbox"],
+    &[type="radio"]
+      padding: 0
+      width: auto
+      float: left
+
+
+
+// ==========================================================================
+// 6.2 Reset search input
+// 
+// Webkit makes the search input look very different from regular inputs. Makes
+// search inputs look like regular inputs
+//
+//
+reset-input-search()
+  input[type="search"]
+    -webkit-appearance: none
+
+    &::-webkit-search-decoration,
+    &::-webkit-search-cancel-button
+      display: none
+
+
+
+// ==========================================================================
+// 6.3 Reset number input
+// 
+// Input is almost always too large for what will be input here, so we set a
+// new default width. Removes spinner controls on input, as these are generally
+// too small to use and are much more inefficient than typing in number
+//
+// @default_width (percent) - percent inputs resize width to. defaults to 75%
+// @spinners (bool) - determine whether to turn off spinners. defaults to true
+//
+//
+reset-input-number(default_width = 75%, spinners = true)
+  input[type="number"]
+    width: default_width
+    text-align: center
+    
+    if spinners
+      &::-webkit-inner-spin-button,
+      &::-webkit-outer-spin-button
+        -webkit-appearance: none
+        margin: 0
+
+
+
+// ==========================================================================
+// 6.4 Reset placeholders
+// 
+// Helpful mixin to color the placeholder for inputs. Defaults to text color
+//
+// @off_color (color) 
+//
+//
+reset-placeholders(off_color)
+  ::-webkit-input-placeholder
+    color: off_color
+
+
+
+// ==========================================================================
+// 6.5 Reset date and time
+// 
+// Date and time inputs have a special notation for their placeholders and color
+// their values independently (if using the built in widget structure). Mainly
+// for Chrome, which has an excellent widget
+//
+// @off_color (color) - color for placeholder text
+// @on_color (color) - color for user-entered values
+//
+//
+reset-datetime(off_color, on_color)
+  ::-webkit-datetime-edit-month-field
+  ::-webkit-datetime-edit-day-field
+  ::-webkit-datetime-edit-year-field
+    color: off_color
+
+  input["value"]
+    &::-webkit-datetime-edit-month-field
+    &::-webkit-datetime-edit-day-field
+    &::-webkit-datetime-edit-year-field
+      color: on_color
