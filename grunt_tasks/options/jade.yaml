@@ -2,24 +2,25 @@
 options:
   pretty: true
   client: false
+  basedir: "<%= src.html %>/_templates/"
   amd: false
 
 files:
   expand: true
   cwd: "<%= src.html %>"
-  src: ['**/*.jade', '!**/_*.jade']
-  dest: "<%= build.html %>"
-  ext: ".html"   
+  src: ['**/*.jade', '!**/_*.jade', '!_*/*.jade']
+  dest: "<%= build.base %>"
+  ext: ".html"
 
 dev:
   options:
-    data: "<%= jade_data %>"
+    data: "<%= locals %>"
   files:
     - '<%= jade.files %>'
 
 deploy:
   options:
     pretty: false
-    data: "<%= jade_data %>"
-  files: 
+    data: "<%= locals %>"
+  files:
     - '<%= jade.files %>'

@@ -1,0 +1,81 @@
+// TYPE
+body_stack_mobile = franklin-gothic-urw-cond;
+body_stack = franklin-gothic-urw-cond;
+header_stack_mobile = frontage;
+header_stack = frontage;
+base_font_size = 15px;
+base_line_height = 20px;
+bfs = base_font_size;
+blh = base_line_height;
+
+//COLOR PALETTE
+// grey = #5b5b5b #898989 #afafaf #cecece #ededed #fcfcfc;
+black = #181412;
+grey = #bfc0c1;
+orange = #ba4633 #EB7B47 #F7A166 #FCC48D;
+yellow = #fee4a2;
+dark = #AD8884 #A8905F #70635C #95847A;
+// lights = #F5E1C1 #E4C191 #F6DDAD #EBEBD4 #F2EEDB;
+fire = #BA4633 #D97330 #F29B3D #FEE4A2 #D0903F;
+copy = #5b5b5b;
+copy_hilite = #FFE1C7;
+copy_tint = #121212;
+bkg = #FFFFFA;
+bkg_hilite = #FFF2E0;
+bkg_tint = null;
+hairline = #AD8884;
+hairline_hilite = #fcfcfc;
+ctrl = #afafaf;
+ctrl_hover = lighten(ctrl, 25%);
+ctrl_active = darken(ctrl, 5%);
+selection = copy
+selection_bg = ctrl;
+
+// #ba4633 // red
+
+// #eb7b47 // orange1
+// #f7a166 // orange2
+
+// BREAKPOINTS
+// bp_condensed: sub 600px screens (mainly mobile devices)
+// bp_enhanced: between 600 and 1024px screens (mainly tablets, some laptops, large DPI screns)
+// bp_extended: above 901 for large screens / desktops and the like
+bp_condensed = 37.5625em;
+bp_extended = 56.3125em;
+
+// GRIDS
+grids = {
+  thirds: {
+    modules: 3
+    widths: 33.3333
+  },
+  fourths: {
+    modules: 4
+    widths: 25
+  },
+  fifths: {
+    modules: 5
+    widths: 20
+  },
+  tenths: {
+    id: "u"
+    modules: 10
+    widths: 10
+  },
+  condensed: {
+    max: 320px,
+    widths: 96.875
+  },
+  condensed_alt: {
+    max: 600px,
+    widths: 96
+  },
+  enhanced: {
+    max: 990px,
+  },
+  extended: {
+    max: 1120px
+  }
+}
+
+res = "../res"

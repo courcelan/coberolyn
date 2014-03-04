@@ -1,0 +1,170 @@
+// INIT
+// ==========================================================================
+// set up basic fonts, elements, set up grids and other utils
+// ==========================================================================
+
+// ==========================================================================
+// Load Fonts
+// 
+// fonts can be called by arg1 elsewhere in the code
+//
+//
+// Cantarell loaded through Typekit
+// font-load('Cantarell', res + 'fonts/Bryant', otf, false)
+
+
+
+// ==========================================================================
+// Reset
+// 
+// reset all elements to baseline to be altered via CSS and class structure
+//
+//
+reset()
+
+
+
+// ==========================================================================
+// Utils
+// 
+// calls utils functions. creates utilities as OOCSS and prefixed by
+// `u-`
+//
+//
+utils()
+
+.u-hairline
+  @extend $layers
+
+  &:after
+    position: static
+    margin: 0 blh*-.5 blh
+    padding-top: blh
+    border-bottom: rgba(color.hairline, 50%)
+
+// ==========================================================================
+// Padding and Margin classes
+// 
+// calls padding and space class structures based on arg2 and arg3
+//
+//
+base_pad(u, xy x y, 25 50 100 200)
+base_space(u, x y above below center, 25 50 75 100 200)
+
+
+
+// ==========================================================================
+// Grids
+// 
+// create grid classes based on grid hashes defined in _traxng.styl
+//
+//
+base_gridset(grids.thirds)
+base_gridset(grids.fifths)
+base_gridset(grids.tenths)
+
+
+// ==========================================================================
+// Ttansitions
+// 
+// @extend placeholders for transitions
+//
+//
+$quick-change-all
+  change-state: all .3s
+
+$med-change-all
+  change-state: all .5s
+
+
+
+// ==========================================================================
+// Basic element controls 
+// 
+// html: set root font size to 10px for REM sizing
+// body: set font-size here to 0 for opt-in font sizing
+// 
+//
+//
+html
+  @extend $layers
+  html-init()  
+  background: color.bkg
+
+  &::after
+    edges: 0
+    background: url(res/witewall_3_@2X.png)
+    opacity: .25
+
+body
+  @extend $layers
+  body-init()
+  local_hairline = rgba(color.hairline, 75%)
+  // background: orange fade, purple border, lower purple border, dash marks
+  background: linear-gradient(
+                to top,
+                darken(#F7A166, 25%) 45%,
+                #F7A166
+              ),
+              linear-gradient(
+                to top,
+                local_hairline,
+                local_hairline
+              ),
+              linear-gradient(
+                to top,
+                local_hairline,
+                local_hairline
+              ),
+              linear-gradient(
+                to left,
+                local_hairline 50%,
+                transparent 50%
+              )
+  background-size: 100% blh*12, 100% 1px, 100% 1px, 6px 1px
+  background-position: 0 0, 0 blh*12, 0 blh*14, 0 blh*13
+  background-repeat: no-repeat, no-repeat, no-repeat, repeat-x
+  color: color.copy
+
+  &::before
+    edges: 0 0 auto
+    height: blh*12
+    background: url("../res/squairy_light.png")
+    opacity: .25
+  
+  
+a
+  color: color.ctrl
+  text-decoration: none
+  
+  &:hover
+    color: color.ctrl_hover
+
+  &:active
+    color: color.ctrl_active
+
+
+img
+  max-width: 100%
+  border: 0
+
+
+details 
+  summary::-webkit-details-marker
+    display: none
+
+
++condensed()
+  .no-condensed
+    display: none
+
++over(bp.condensed)
+  .no-condensed
+    display: inline-block
+
+  .only-condensed
+    display: none
+ 
++extended()
+  .no-extended
+    display: none

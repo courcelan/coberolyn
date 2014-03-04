@@ -1,0 +1,70 @@
+// TYPOGRAPHY
+// ==========================================================================
+// opt-in typography defined
+// ==========================================================================
+
+// ==========================================================================
+// Class suffix ideas and what they "mean"
+//
+//
+// -poster : extremely large sizes, usually larger than 72 point
+// -display : large sizes, typically 19–72 point
+// -subhead : large text, typically about 14–18 point
+// -(Regular) : usually left unnamed, typically about 10–13 point
+// -smtext : typically about 8–10 point
+// -caption : very small, typically about 6–8 point
+$headingstack
+  font-family: type.header_stack
+
+$bodystack
+  font-family: type.body_stack
+
+.typ-regular
+  @extend $bodystack
+  font-size: bfs
+  font-weight: 100
+  line-height: blh
+
+
+.hdr--hosts
+.hdr--event
+.hdr--date
+  font-family: english-small-caps
+  font-size: 30px
+  line-height: blh*1.5
+  font-weight: 900
+  color: color.fire[0]
+  text-shadow: 0 -1px bl(15), 0 1px wh(15)
+  
+  +under(bp.extended)
+    font-size: 15px
+    line-height: blh
+
+.hdr--hosts
+  @extend $layers
+  width: auto
+
+  &::before
+    content: "&"
+    edges: 7px 0 auto
+    padding-left: 14%
+    font-family: maryam-alt
+    font-size: 120px
+    text-align: center
+    color: color.fire[1]
+    opacity: .45
+  
+.hdr--date
+  font-size: 20px
+
+
+
+.typ-promo
+  font-family: quatro slab
+  font-size: 48px
+  font-weight: 700
+  letter-spacing: 2px
+
+.typ-subhead
+  font-size: 12px
+  text-transform: uppercase

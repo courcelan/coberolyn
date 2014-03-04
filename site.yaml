@@ -1,0 +1,186 @@
+# SITE CONTENT CENTRIC
+client:
+  name: "Coberoyln"
+  site: "coberolyn.is"
+  url: "http://coberolyn.is"
+author:
+  name: 'Wellfire Interactive'
+  url: 'http://wellfire.co'
+copyright: "<%= grunt.template.today('yyyy') %>"
+canonical: false
+description: false
+favicon: false
+appleicon: false
+
+# JS CENTRIC
+jQuery: false
+angular: false
+sitekey: false
+typekit: "tyz6mhj"
+
+# CSS CENTRIC
+supportIE7: false
+supportIE8: false
+supportIE9: false
+
+# SERVER CENTRIC
+debug: true
+static: "/static/" #can change this to django tag for deploy
+
+sitemap:
+  - title: about us
+    active: false
+  - title: the proposal
+    active: false
+  - title: the wedding party
+    active: false
+  - title: the ceremony + reception
+    active: false
+  - title: the weekend
+    active: false
+  - title: the hotels
+    active: true
+  - title: the town
+    active: false
+  - title: the registry
+    active: false
+  - title: the honeymoon
+    active: false
+
+hotels:
+  - name: Holiday Inn University
+    short_name: Holiday Inn
+    cost: $149/nt
+    duration: Friday &mdash; Sunday
+    address: 1901 Emmet Street
+    city: Charlottesville
+    state: VA
+    zip: 22901
+    phone: (434) 977-7700
+    message: Be sure to include group code "MWB" when reserving.
+    link: http://www.ihg.com/holidayinn/hotels/us/en/charlottesville/chonu/hoteldetail?groupCode=MWB&checkInDate=May-23-2014&checkOutDate=May-25-2014
+
+  - name: Residence Inn Charlottesville
+    short_name: Residence Inn
+    cost: $139/nt
+    duration: Thursday &mdash; Sunday
+    address: 1111 Millmont St
+    city: Charlottesville
+    state: VA
+    zip: 22901
+    phone: (434) 923-0300
+    message: The rooms available are single queen suites.
+    link: http://www.marriott.com/meeting-event-hotels/group-corporate-travel/groupCorp.mi?resLinkData=Mertes-Potter%20Wedding%20Room%20Block%5Echori%60mpwmpwa%60139%60USD%60false%605/22/14%605/25/14%605/4/14&app=resvlink&stop_mobi=yes
+
+  - name: Fairfield Inn & Suites
+    short_name: Fairfield Inn
+    cost: $129/nt
+    duration: Friday &mdash; Sunday
+    address: 577 Branchlands Blvd
+    city: Charlottesville
+    state: VA
+    zip: 22901
+    phone: (434) 964-9411
+    message: Rooms available are single king suites and two double bed suites.
+    link: http://www.marriott.com/meeting-event-hotels/group-corporate-travel/groupCorp.mi?resLinkData=Mertes-Potter%20Wedding%5ECHOFI%60MPWMPWA%7CMPWMPWB%60129.00%60USD%60false%605/23/14%605/25/14%604/23/14&app=resvlink&stop_mobi=yes
+
+wedding_party:
+  - who: Carolyn
+    party: 
+      - name: Aly Cannon
+        position: Maid of Honor
+        relation: Friend
+      - name: Cassie Seiter
+        position: Bridesmaid
+        relation: Friend
+      - name: Tricia Power
+        position: Bridesmaid
+        relation: Friend
+      - name: Liz White
+        position: Bridesmaid
+        relation: Friend
+      - name: Jess Sherard
+        position: Bridesmaid
+        relation: Friend
+      - name: Ashley Hartman
+        position: Bridesmaid
+        relation: Friend
+      - name: Erin Potter
+        position: Bridesmaid
+        relation: Friend and Future Sister-in-Law of Bride
+  - who: Cobey
+    party:
+      - name: Ben Lopatin
+        position: Best Man
+        relation: Friend and Business Partner
+        photo: ben.jpg
+        description: 
+          "Cobey met Ben on the first day of college and over the next few years, 
+          through shared courses and interests, became fast friends."
+      - name: Reid Kasprowicz
+        position: Groomsman
+        relation: Friend and Fellow Adventurer
+        photo: reid.jpg
+        description: 
+          "Though they only shared a few courses while at UVA, Reid and Cobey
+          rabble-roused with the rest of the Party for the greater part of college. Reid is
+          Cobey's world-adventure travel buddy, having traveled to Bermuda and around the perimeter
+          of Ireland. Reid kept forgetting to drive on the other side of the road, helping Cobey uncover 
+          his future with Carolyn every time his life flashed before his eyes."
+      - name: Justin Selfridge
+        position: Groomsman
+        relation: Friend and Science Officer
+        photo: justin.jpg
+        description: 
+          "Justin is crazy smart and is studying for his PHD at UVA. He's also crazy loud and has 
+          gotten Cobey into trouble more than once because he doesn't know how to whisper
+          (Intro to Perception ring a bell?). Justin is getting married later this year to his wonderful
+          fiancé, Calla. Both are full-of-life and both are loud. You'll hear them laughing all weekend long."
+      - name: Hunter Brooks
+        position: Groomsman
+        relation: Friend and Bandmate-in-Arms
+        photo: hunter.jpg
+        description:
+          "Hunter and Cobey wrote music and performed in a band and spent many a night enjoying loud rock
+          music and beers while in college. They once attempted to grill indoors during a hurricane. Cobey introduced
+          Hunter to his beautiful wife, Diana, during one evenful college spring break. Cobey is still waiting for a
+          Brooks child to be named after him."
+      - name: Carlo Williams
+        position: Groomsman
+        relation: Friend and Fellow Wahoo Fanatic
+        photo: carlo.jpg
+        description:
+          "Carlo and Cobey were in rival libation clubs while at UVA. They started hanging out after they kept 
+          turning up at the same events. Carlo and Cobey have had some great adventures with late night NYE 
+          Waffle House and Denny's runs, entertaining locals on Austin's 6th Street, and shutting down many a bar
+          in Atlanta, where Carlo now lives. Look for Carlo's smooth moves on the dance floor."
+      - name: Phil Meawad
+        position: Groomsman
+        relation: "Friend and, amazingly, a Hokie"
+        photo: phil.jpg
+        description:
+          "What to say about Phil? Phil is a Hokie. He is definitely the only Hokie allowed on this side of the 
+          aisle. Phil is the first of Carolyn's friends that Cobey met, acting as the judge and jury to whether 
+          a Hokie and Hoo could ever date through football season. Looks like his judgement is a sound one."
+      - name: Kent Hodgson
+        position: Groomsman
+        relation: Friend and Sister's Boyfriend
+        photo: kent.jpg
+        description:
+          "Kent is dating Cobey's sister, Erin, and is "
+
+wedding_extras:  
+  who: Other Excellent People
+  party:
+    - name: Ben Cawley
+      position: Officiant
+      relation: Friend of Bride and Groom
+    - name: Erin Cawley
+      position: Reader
+      relation: Friend of Bride
+    - name: Amy Giovannucci
+      position: Reader
+      relation: Friend of Bride
+    - name: Matt Tremonte
+      position: Reader
+      relation: Friend of Groom

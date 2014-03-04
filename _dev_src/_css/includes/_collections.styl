@@ -1,0 +1,28 @@
+.spot-info
+  &:last-child:nth-child(odd)
+    width: 100%
+
+.spot-info--hdr
+  height: blh*2
+
+.spot-info--data
+  dd
+  dt
+    width: auto
+
+  dt
+    font-weight: 900
+
+    &:after
+      content: ": "
+  
+  dd
+    span
+      display: block
+
+.spot-info--ftr
+  height: blh*6
+
+  .btn-outbound
+    position: absolute
+    edges: auto 0 0 auto

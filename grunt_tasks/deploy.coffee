@@ -1,5 +1,10 @@
 module.exports = (grunt) ->
 
+  grunt.registerTask 'cloudvent',
+    'run deployment tasks and send to cloudvent'
+    [
+      'shell:cloudvent'
+    ]
 
   grunt.registerTask 'deploy_main_tasks',
     'subtask to share among deploy tasks'
@@ -20,7 +25,6 @@ module.exports = (grunt) ->
       'yaml:dev'
       'json:models'
     ]
-
 
 
   grunt.registerTask 'deploy',

@@ -1,0 +1,111 @@
+// INIT
+// ==========================================================================
+// set up basic fonts, elements, set up grids and other utils
+// ==========================================================================
+
+// ==========================================================================
+// Load Fonts
+// 
+// fonts can be called by arg1 elsewhere in the code
+//
+//
+// Cantarell loaded through Typekit
+font-load('frontage', res+"/Frontage-Regular", otf, false)
+// font-load('Frontage', res/Frontage-Bold, otf, false)
+// font-load( altgoth, res+'/AlternateGotNo3D', otf, false)
+// font-load( cantarell, res+'/u004001t', ttf, false)
+
+
+// ==========================================================================
+// Reset
+// 
+// reset all elements to baseline to be altered via CSS and class structure
+//
+//
+reset()
+
+
+
+// ==========================================================================
+// Utils
+// 
+// calls utils functions. creates utilities as OOCSS and prefixed by
+// `u-`
+//
+//
+utils()
+
+.hairline
+  border: copy
+
+// ==========================================================================
+// Padding and Margin classes
+// 
+// calls padding and space class structures based on arg2 and arg3
+//
+//
+base_pad(xy x y, 25 50 75 100 200)
+base_space(x y above below center, 10 25 50 100 150 200)
+
+
+
+// ==========================================================================
+// Grids
+// 
+// create grid classes based on grid hashes defined in _traxng.styl
+//
+//
+base_gridset(grids.thirds)
+base_gridset(grids.fourths)
+base_gridset(grids.fifths)
+
+
+// ==========================================================================
+// Ttansitions
+// 
+// @extend placeholders for transitions
+//
+//
+$quick-change-all
+  change-state: all .75s
+
+$med-change-all
+  change-state: all .5s
+
+
+
+// ==========================================================================
+// Basic element controls 
+// 
+// html: set root font size to 10px for REM sizing
+// body: set font-size here to 0 for opt-in font sizing
+// 
+//
+//
+html
+  html-init()
+  background: bkg
+
+body
+  body-init()
+  color: copy
+  position: static
+ 
+
+a
+  color: ctrl
+  text-decoration: none
+  
+  &:hover
+    color: ctrl_hover
+
+  &:active
+    color: ctrl_active
+
+img
+  max-width: 100%
+  border: 0
+
+details 
+  summary::-webkit-details-marker
+    display: none

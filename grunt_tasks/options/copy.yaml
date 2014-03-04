@@ -3,16 +3,16 @@ vendor:
   files:
     -
       expand: true
-      cwd: "<%= src.vendor %>"
+      cwd: "<%= src.base %>/<%= src.vendor %>"
       src: "**"
-      dest: "<%= build.vendor %>"
+      dest: "<%= build.base %>/<%= build.static %>/<%= build.vendor %>"
       filter: 'isFile'
 
 assets:
   files:
     -
       expand: true
-      cwd: "<%= src.assets %>"
+      cwd: "<%= src.base %>/<%= src.assets %>"
       src: "**"
-      dest: "<%= build.assets %>"
+      dest: "<%= build.base %>/<%= build.static %>/<%= build.assets %>"
       filter: 'isFile'

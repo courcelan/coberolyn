@@ -3,13 +3,13 @@ module.exports = (grunt) ->
   grunt.registerTask 'dev',
     'run general tasks for development and browser testing'
     [
-      'yaml:dev'
-      'json:models'
-      'karma:unit_once'
+      # 'yaml:dev'
+      # 'json:models'
+      # 'karma:unit_once'
       'jade:dev'
       'stylus:dev'
-      'coffee:dev'
-      'concat:js'
+      # 'coffee:dev'
+      # 'concat:js'
       'copy:vendor'
       'copy:assets'
     ]

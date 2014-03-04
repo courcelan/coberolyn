@@ -2,20 +2,20 @@
 files: 
   - # vefa
     expand: true
-    cwd: "<%= src.js %>vefa/"
+    cwd: "<%= src.base %>/<%= src.js %>vefa/"
     src: "**/*.coffee"
     dest: "<%= build.js %>vefa/"
     ext: ".js"
 
   - # general
     expand: true
-    cwd: "<%= src.js %>app/"
+    cwd: "<%= src.base %>/<%= src.js %>app/"
     src: ["**/*.coffee", "!**/*.spec.coffee"]
     dest: "<%= build.js %>"
     ext: ".js"
 
   - # main
-    '<%= build.js %>main.js': '<%= src.js %>main.coffee'
+    '<%= build.js %>main.js': '<%= src.base %>/<%= src.js %>main.coffee'
 
 
 dev:

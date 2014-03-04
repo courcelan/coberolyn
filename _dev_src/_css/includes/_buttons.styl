@@ -1,0 +1,44 @@
+// Buttons
+// ==========================================================================
+// items that should look and behave like buttons
+// ==========================================================================
+$u-btn
+  position: relative
+  vertical-align: middle
+  width: auto
+  font: inherit /* Inherit font styles from ancestor. */
+  line-height: blh 
+  text-align: center
+  text-decoration: none
+  white-space: nowrap /* Prevent wrapping across multiple lines. */
+  -webkit-appearance: none /* Corrects inability to style clickable `input` types in iOS */
+  background: transparent
+  border: 0
+  color: inherit /* Inherit text color from ancestor. */
+  cursor: pointer
+  -moz-user-select: none
+  -ms-user-select: none
+  -webkit-user-select: none
+  user-select: none /* Prevent button text from being selectable. */
+  
+  
+  &:hover
+  &:focus
+  &:active
+    outline: 0
+    text-decoration: none
+
+  :disabled
+  .is-disabled
+    cursor: default
+
+  &::-moz-focus-inner 
+    border: 0
+    padding: 0
+
+
+.btn-icon
+  @extend $u-btn
+
+.btn-outbound
+  hovers: (color background-color) .3s

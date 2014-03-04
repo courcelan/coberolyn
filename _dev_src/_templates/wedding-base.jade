@@ -1,0 +1,127 @@
+include mixins
+
+html(lang="en-US")
+  head
+    meta(charset="utf-8")
+
+    // if IE
+      <meta http-equiv="imagetoolbar" content="no" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+    title #{ title }
+
+    if canonical
+      link(rel="canonical", href="#{ canonical }")
+
+    if description
+      meta(name="description", content="#{ description }")
+
+    if author
+        meta(name="author", content="#{ author }")
+        link(rel="author", href="#{ static }humans.txt")
+
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    meta(name="apple-mobile-web-app-capable",content="yes")
+    meta(name="apple-mobile-web-app-status-bar-style", content="black-translucent")
+
+    if favicon
+      link(rel="shortcut icon", href="#{ static }#{ favicon }")
+    if appleicon
+      link(rel="apple-touch-icon", href="#{ static }#{ appleicon }")
+
+
+    link(rel="stylesheet", href="#{ static }css/default.css")
+    block extra_css
+    if supportIE7
+      // if lt IE 8
+        link(rel="stylesheet", href="#{ static }css/ie7.css")
+    if supportIE8
+      // if IE 8
+        link(rel="stylesheet", href="#{ static }css/ie8.css")
+    if supportIE9
+      // if IE 9
+        link(rel="stylesheet", href="#{ static }css/ie9.css")
+
+    if typekit
+      script(src="//use.typekit.net/#{typekit}.js")
+      script.
+        try{Typekit.load();}catch(e){}
+
+  block page
+    body(dir="ltr", ontouchstart="", onmouseover="", class=mainFill)
+      .cr-main.space-center.pad-x
+        // if lt IE 8
+          p.chromeframe.
+            Your browser isn't <em>supported</em>
+            <a href="http://browsehappy.com/">Upgrade to a different browser</a> or
+            <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to experience this site.
+
+        header.cr-hdr.reverse.space-above200(role="banner")
+          h2: a(href="/getting-married").hdr--hosts Carolyn Marie + Jonathan Cobey
+          time.hdr--date May 24th, 2014 
+
+        block cr_pri
+          main.cr-pri(role="main", class=priClass)
+            block primary
+
+            block secondary
+
+        block nav_pri
+          .navbar(class=navClass)
+            nav.nav-pri.balance.pad-y
+              for elm in sitemap
+                +slugged_link(elm)
+                  if url
+                    - url = "/getting-married/" + url
+                  a(href=url).nav-pri--link.pad-x25= elm.title
+
+        block tertiary
+
+      //- JAVASCRIPT
+      if jQuery
+        script(src="//ajax.googleapis.com/ajax/libs/jquery/#{ jQuery }/jquery.min.js")
+        script.
+          window.jQuery || document.write('<script src="#{ STATIC_URL }js/jquery.js"><\/script>')
+
+      if Angular
+        script(src="#{ STATIC_URL }js/angular/angular.min.js")
+        script(src="#{ STATIC_URL }js/main.js")
+
+      block extra_js
+
+      if debug
+        script(src="http://localhost:1111/livereload.js")
+
+      if analytics
+        script.
+          var useAnalytics = true;
+          try {
+            //Turn off analytics if 'analytics=off' is included as a request parameter.
+            var parameters = window.location.search.split('&');
+            if (parameters[0]) {
+              parameters[0] = parameters[0].replace('?', '');
+            }
+            for (var i = 0; i < parameters.length; i++) {
+              var values = parameters[i].split('=');
+              if (values[0] == 'analytics' && values[1] == 'off') {
+                useAnalytics = false;
+              }
+            }
+            //Turn off analytics if 'localhost' is the host
+            if (window.location.host == 'localhost' or ) {
+              useAnalytics = false;
+            }
+          } catch(e) {
+            //Just in case something goes wrong...
+            useAnalytics = true;
+          }
+          if (useAnalytics) {
+            var _gaq = _gaq || [];
+            _gaq.push(['_setAccount', '#{ analytics }']);
+            _gaq.push(['_trackPageview']);
+            (function() {
+              var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+              ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+              var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+            })();
+          }

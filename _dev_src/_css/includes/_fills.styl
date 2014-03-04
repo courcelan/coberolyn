@@ -1,0 +1,88 @@
+.f1
+  background: grey[0]
+  
+  .hairline
+    border: 10px solid rgba(dark[3], 10%)
+    
+
+  .hdr--hosts
+  .nav-pri--link
+    color: orange[0]
+  
+  .hdr--date
+    color: yellow[0]
+
+  .nav-pri--link
+    &:hover
+      color: orange[1]
+
+    &:not([href])
+      color: lighten(@background, 25%)
+
+.f2
+  background: orange[0]
+  
+  .hdr--hosts
+  .nav-pri--link
+    color: grey[0]
+  
+  .typ-poster
+  .typ-subhead
+    color: orange[2]
+
+  .hdr--date
+    color: yellow[0]
+
+  .nav-pri--link
+    &:hover
+      color: orange[1]
+
+    &:not([href])
+      color: lighten(@background, 15%)
+
+  .copy
+    color: black[0]
+
+  .spot-info
+    background: darken(orange[0], 5%)
+    box-shadow: inset 0 0 0 1px orange[0]
+
+  .btn-outbound
+    background: darken(orange[0], 15%)
+    color: wh(50)
+
+    &:hover
+      background: darken(orange[0], 25%)
+      color: wh()
+
+.f3
+  background: orange[2]
+  
+  .hairline
+    border-color: orange[1]
+
+  .hdr--hosts
+  .nav-pri--link
+    color: orange[0]
+  
+  .hdr--date
+    color: orange[1]
+
+  .typ-poster
+  .typ-subhead
+    color: wh(75)
+
+  .spot-info
+    background: darken(orange[2], 4%)
+    box-shadow: inset 0 0 0 1px orange[2]
+
+  .nav-pri--link
+    &:hover
+      color: orange[1]
+
+    &:not([href])
+      color: lighten(@background, 15%)
+
+.copy
+  @extend $bodystack
+  font-size: bfs

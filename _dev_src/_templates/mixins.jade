@@ -1,0 +1,6 @@
+mixin slugged_link(elm)
+  if elm.active
+    - url = elm.title.split(" ").join("-") + ".html"
+  else
+    - url = false
+  block

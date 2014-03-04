@@ -1,0 +1,38 @@
+extends /wedding-base
+
+prepend page
+  - mainFill = "f3"
+
+block primary
+  article.view
+    header.view--hdr.space-below
+      h1.typ-poster Wedding Party
+    .view--bd
+      ul.arrange
+        for side in wedding_party
+          li.spot-info.copy.fill2_4.arrange--itemFit.pad-xy50
+            header.spot-info--hdr
+              h2.typ-poster= side.who
+            ul
+              for member in side.party
+                li.spot-info--data.pad-y50.context
+                  if member.photo
+                    img(
+                      src="#{ static }res/#{ member.photo }"
+                    ).fill1_5.objLeft.pad-xy25.hairline
+                  .context
+                    span.typ-subhead #{ member.name },&nbsp; 
+                    span #{ member.position }
+                    p= member.relation
+                    p= member.description
+
+      .spot-info.copy.pad-xy50
+        header.spot-info--hdr
+          h2.typ-poster= wedding_extras.who
+        ul
+          for member in wedding_extras.party
+            li.spot-info--data.pad-y50
+              span.typ-subhead #{ member.name },&nbsp; 
+              span #{ member.position }
+              p= member.relation
+              p= member.description

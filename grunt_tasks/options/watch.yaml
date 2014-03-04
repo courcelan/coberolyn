@@ -7,20 +7,22 @@ options:
   livereload: 1111
 
 karma:
-  files: ['<%= src.js %>**/*.coffee']
+  files: ['<%= src.base %>/<%= src.js %>**/*.coffee']
   tasks: 
     - 'yaml:dev'
     - 'json:models'
     - 'test'
 
 jade:
-  files: ['<%= src.base %>**/*.jade']
-  tasks: ['jade:dev']
+  files: ['<%= src.html %>/**/*.jade']
+  tasks: ['jade:dev', 'cloudvent']
 
 stylus:
-  files: ['<%= src.css %>**/*.styl']
-  tasks: ['stylus:dev']
+  files: [
+    '<%= src.base %>/<%= src.css %>/**/*.styl'
+    ]
+  tasks: ['stylus:dev', 'cloudvent']
 
 coffee:
-  files: ['<%= src.js %>**/*.coffee']
-  tasks: ['coffee_dev']
+  files: ['<%= src.base %>/<%= src.js %>**/*.coffee']
+  tasks: ['coffee_dev', 'cloudvent']

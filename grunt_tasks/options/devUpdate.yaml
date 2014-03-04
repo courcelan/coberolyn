@@ -1,0 +1,4 @@
+dev:
+  options:
+    reportUpdated: true
+    updateType: "force"

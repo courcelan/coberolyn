@@ -6,9 +6,9 @@
 #     return true
 files: 
   expand: true
-  cwd: "<%= src.css %>"
+  cwd: "<%= src.base %>/<%= src.css %>"
   src: ["*.styl", "!_*.styl"]
-  dest: "<%= build.css %>"
+  dest: "<%= build.base %>/<%= build.static %>/<%= build.css %>"
   ext: ".css"
   # '<%= build.css %>default.css': '<%= src.css %>default.styl'
   # '<%= build.css %>condensed.css': '<%= src.css %>condensed.styl'
@@ -25,8 +25,4 @@ dev:
 deploy:
   options:
     compress: true
-    banner:  | 
-      /*******************
-      <%= banner_info %>
-      ********************/
   files: ['<%= stylus.files %>']

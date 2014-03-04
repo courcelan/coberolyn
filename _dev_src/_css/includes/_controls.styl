@@ -1,0 +1,101 @@
+// Controls
+// ==========================================================================
+// items that should behave like links
+// ========================================================================== 
+[class*="ctrl-"]
+  position: static
+  background: none
+  cursor: pointer
+  
+// ==========================================================================
+// Clean control
+// 
+// A control without any text-decoration at all.
+.ctrl-clean
+  @extend $quick-change-all
+  text-decoration: none
+  color: ctrl
+
+  &:hover
+    color: ctrl_hover
+  
+  &:focus
+  &:active
+    color: ctrl_active
+
+  &:disabled
+  &:disabled:hover
+    color: copy
+    cursor: text
+
+  
+// ==========================================================================
+//  Complex control
+//
+//  A common pattern is to have a link with several pieces of text and/or an
+//  icon, where only one piece of text should display the underline when the
+//  link is the subject of user interaction.
+//  
+//  Example HTML:
+//  <a class="ctrl-complex" href="#">
+//    Link complex
+//    <span class="ctrl-complex--target">target</span>
+//  </a>
+.ctrl-complex
+.ctrl-complex:hover
+.ctrl-complex:focus
+.ctrl-complex:active
+  text-decoration: none
+  
+  .ctrl-complex-target
+    text-decoration: underline
+
+
+// ==========================================================================
+//  Block-level control
+//
+//  Combination of traits commonly used in vertical navigation lists.
+.ctrl-block
+.ctrl-block:hover
+.ctrl-block:focus
+.ctrl-block:active
+  display: block
+  text-decoration: none
+
+
+// ==========================================================================
+// Pseudo control
+// 
+// Another interactive element, e.g., `button`, styled to look like an anchor.
+// Relies on the use of a placeholder anchor (and ideally ARIA).
+// 
+// Example HTML:
+// 
+// <button class="u-linkPseudo" type="button">
+//   <a role="presentation">Button content</a>
+// </button>
+.ctrl-pseudo
+  display: inline
+  padding: 0
+  margin: 0
+  font: inherit
+  color: inherit
+  background: transparent
+  border: 0
+  
+  &:hover
+  &:focus
+  &:active 
+    background: transparent
+    color: inherit
+
+
+// ==========================================================================
+// Placebo control
+// 
+// Copies layout and structure of other control element siblings, but
+// acts as a text link
+.ctrl-placebo
+  @extend .ctrl-pseudo
+  text-decoration: none
+  cursor: text

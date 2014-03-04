@@ -1,4 +1,0 @@
-deploy:
-  options:
-    commitMessage: "deployed"
-  src: "public"

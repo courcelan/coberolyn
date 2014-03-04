@@ -1,0 +1,33 @@
+extends /wedding-base
+
+prepend page
+  - mainFill = "f2"
+
+block primary
+  article.view
+    header.view--hdr.space-below
+      h1.typ-poster Hotels
+    .view--bd
+      ul.arrange
+        for hotel in hotels
+          li.spot-info.copy.fill1_3.pad-xy50.arrange--itemFit
+            header.spot-info--hdr.space-below50
+              h2.typ-subhead= hotel.name
+            dl.spot-info--data
+              li
+                dt cost
+                dd= hotel.cost 
+              li
+                dt block duration
+                dd!= hotel.duration
+              li
+                dt address
+                dd
+                  span #{ hotel.address },
+                  span #{ hotel.city }, #{ hotel.state } #{ hotel.zip }
+              li
+                dt phone
+                dd= hotel.phone
+            footer.spot-info--ftr.space-above
+              p= hotel.message
+              a.btn-outbound.pad-xy50(href=hotel.link) Reserve at #{ hotel.short_name }

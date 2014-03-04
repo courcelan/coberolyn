@@ -1,0 +1,122 @@
+// REGIONS
+// ==========================================================================
+// content regions
+// ==========================================================================
+
+// ==========================================================================
+// Header Content Region
+// 
+// Site Header
+// darken(saturate(#F7A166, 85%), 10%) 100%
+.cr-hdr
+  @extend $layers
+  height: blh*12
+  max-height: @height
+  z-index: 30
+  
+  +extended()
+    width: grids.extended.max
+
+// ==========================================================================
+// Footer Content Region
+// 
+// Site Footer
+
+
+// ==========================================================================
+// Content View
+// 
+// View template that holds general content
+.cr-main
+  @extend $layers
+  z-index: 10
+
+  +extended()
+    width: grids.extended.max
+
+  // &::before
+  // &::after
+  //   edges: blh*2 0 0
+    
+  // &::before
+  //   height: 1px
+  //   background: rgba(color.hairline, 25%)
+    
+
+  // &::after
+  //   background: url(res/cream_pixels.png)
+  //   opacity: .5
+
+.cr-pri
+  min-height: blh*25
+  border-right: 1px dashed rgba(color.hairline, 50%)
+
+  // +extended()
+  //   width: grids.extended.max
+
+.eg-1
+  position: absolute
+  bottom: 0
+  left: blh
+  z-index: 30
+  height: 110px
+  width: @height
+  
+  .soundhole
+    top: 40px
+
+    &::before
+    &::after
+      border-radius: 50% 50% 0 0
+      border-bottom: transparent
+            
+.eg-2
+  position: absolute
+  top: 0
+  right: blh
+  height: 220px
+  width: @height
+  
+  .soundhole
+    top: -40px
+
+    &::before
+    &::after
+      border-radius: 0 0 50% 50%
+      border-top: transparent
+      
+.soundhole
+  @extend $layers
+  overflow: hidden
+
+  &::before
+  &::after
+    edges: 0
+    border-radius: 50%
+  
+  &::before
+    background: color.bkg
+    border: rgba(color.hairline, 75%)
+
+  &::after
+    background: url(res/witewall_3_@2X.png)
+    opacity: .25
+  
+  // img
+  //   top: -155px
+  //   -webkit-filter: drop-shadow(0 0 2px bl(75))
+
+
+.soundholes--inner
+  @extend $layers
+  position: absolute
+  edges: 0
+  margin: 0 auto
+  width: blh*2
+  background: color.bkg
+  
+  &::before
+    edges: 0
+    background: url(res/witewall_3_@2X.png)
+    opacity: .25
+  
