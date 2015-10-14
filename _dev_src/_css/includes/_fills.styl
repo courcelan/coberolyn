@@ -2,30 +2,55 @@
   background: grey[0]
   
   .hairline
-    border: 10px solid rgba(dark[3], 10%)
-    
+    border-color: rgba(dark[3], 50%)
+  
+  .ampersand
+    color: copy[0]
 
   .hdr--hosts
   .nav-pri--link
+  .typ-poster
     color: orange[0]
   
+  .typ-display
+    color: darken(copy[0], 15%)
+
   .hdr--date
     color: yellow[0]
 
   .nav-pri--link
+    &.cc-active
     &:hover
       color: orange[1]
 
     &:not([href])
       color: lighten(@background, 25%)
 
+  .copy
+    strong
+      color: orange[0]
+
 .f2
   background: orange[0]
   
+  .hairline
+    border-color: darken(orange[1], 15%)
+
   .hdr--hosts
   .nav-pri--link
     color: grey[0]
   
+  .typ-display
+    color: yellow[0]
+
+  .hdr--hosts
+    .ampersand
+      color: orange[1]
+
+  .hdr--icon
+    .icon
+      fill: orange[1]
+
   .typ-poster
   .typ-subhead
     color: orange[2]
@@ -34,6 +59,7 @@
     color: yellow[0]
 
   .nav-pri--link
+    &.cc-active
     &:hover
       color: orange[1]
 
@@ -43,7 +69,7 @@
   .copy
     color: black[0]
 
-  .spot-info
+  .hotel
     background: darken(orange[0], 5%)
     box-shadow: inset 0 0 0 1px orange[0]
 
@@ -58,11 +84,21 @@
 .f3
   background: orange[2]
   
+  a
+    color: yellow[0]
+
+    &:hover
+      color: orange[0]
+
+  .ampersand
+    color: grey[1]
+  
   .hairline
     border-color: orange[1]
 
   .hdr--hosts
   .nav-pri--link
+  .typ-display
     color: orange[0]
   
   .hdr--date
@@ -77,12 +113,17 @@
     box-shadow: inset 0 0 0 1px orange[2]
 
   .nav-pri--link
+    &.cc-active
     &:hover
       color: orange[1]
 
     &:not([href])
       color: lighten(@background, 15%)
 
-.copy
-  @extend $bodystack
-  font-size: bfs
+.intro-splash
+  background-size: cover
+  background-repeat: no-repeat
+  background-image: url(res/cville_sign_small.jpg)
+  
+  +over(bp_condensed)
+    background-image: url(res/cville_sign.jpg)

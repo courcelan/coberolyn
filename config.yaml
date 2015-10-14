@@ -1,0 +1,27 @@
+---
+dev:
+  port: 1515
+
+deploy:
+  dropbox_user: Cobey
+  cloudvent: coberolyn.is
+
+path:
+  src:
+    base: '_dev_src'
+    html: '_dev_src'
+    css: '_css'
+    js: '_js'
+    assets: '_res'
+    vendor: '_bower_components'
+
+  build:
+    base: 'public'
+    static: 'static'
+    css: 'css'
+    js: 'js'
+    assets: 'res'
+    vendor: 'vendor'
+
+# SERVER CENTRIC
+static: "/static/" # can change this to django tag for deploy

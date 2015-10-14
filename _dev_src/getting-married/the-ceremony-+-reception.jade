@@ -1,0 +1,41 @@
+extends /wedding-base
+
+block variables
+  - body_class = "f1"
+  - main_class = "fill4_5"
+  - nav_class = "fill1_5"
+
+block primary
+  article.view.context
+    header.view--hdr
+      h1.typ-poster The Ceremony + Reception (Saturday, May 24, 2014)
+    .view--img.fill2_5.objLeft.pad-xy25.hairline.only-extended
+      img(src="#{ static }res/c_c_foxfield.jpg")
+      .copy
+        span.space-above25 Carolyn + Cobey at Foxfield, one of our favorite Charlottesville events. Unfortunately not held in our honor.
+    .context
+      img(src="#{ static }res/c_c_foxfield.jpg").view--img.fill2_5.objLeft.pad-xy25.hairline.no-extended
+      .view--bd.copy.space-below
+        h2.typ-display Transportation to Wedding
+        :markdown
+          __4:30pm:__ Busses will begin Round 1 of pick ups at Holiday Inn, Fairfield Inn, and Residence Inn
+          
+          __5:15pm:__ Busses will begin Round 2 of pick ups at Holiday Inn, Fairfield Inn, and Residence Inn
+      .view--bd.copy.space-below
+        h2.typ-display Ceremony: KFV
+        :markdown
+          __5:45pm:__ Ceremony will begin at King Family Vineyard
+      .view--bd.copy.space-below
+        h2.typ-display Cocktails &amp; Reception: KFV
+        :markdown
+          __6:15pm&mdash;11:30pm__ Dinner, Dancing, General merriment at King Family Vineyard
+      
+      .view--bd.copy.space-below
+        h2.typ-display Transportation to Hotels
+        :markdown
+          __10pm:__ Busses will begin Round 1 of pick ups at King Family Vineyard
+          
+          __11:30pm:__ Busses will begin Round 2 of pick ups at King Family Vineyard
+
+
+      

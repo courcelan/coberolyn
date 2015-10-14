@@ -1,7 +1,9 @@
 extends /wedding-base
 
-prepend page
-  - mainFill = "f2"
+block variables
+  - body_class = "f2"
+  - main_class = "fill4_5"
+  - nav_class = "fill1_5"
 
 block primary
   article.view
@@ -10,10 +12,10 @@ block primary
     .view--bd
       ul.arrange
         for hotel in hotels
-          li.spot-info.copy.fill1_3.pad-xy50.arrange--itemFit
-            header.spot-info--hdr.space-below50
+          li.hotel.copy.fill1_3.pad-xy50.arrange--itemFit
+            header.hotel--hdr.space-below50
               h2.typ-subhead= hotel.name
-            dl.spot-info--data
+            dl.hotel--data
               li
                 dt cost
                 dd= hotel.cost 
@@ -28,6 +30,8 @@ block primary
               li
                 dt phone
                 dd= hotel.phone
-            footer.spot-info--ftr.space-above
-              p= hotel.message
-              a.btn-outbound.pad-xy50(href=hotel.link) Reserve at #{ hotel.short_name }
+              li: p= hotel.message
+            footer.hotel--ftr.space-above
+              menu(type="toolbar").hotel--actionbar.reverse.enh-stacked
+                a.btn-outbound.pad-xy50(href=hotel.map_link, target="_blank") Map it
+                a.btn-outbound.pad-xy50(href=hotel.link) Reserve at #{ hotel.short_name }

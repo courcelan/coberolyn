@@ -15,7 +15,7 @@ appleicon: false
 # JS CENTRIC
 jQuery: false
 angular: false
-sitekey: false
+analytics: "UA-44315316-1"
 typekit: "tyz6mhj"
 
 # CSS CENTRIC
@@ -23,29 +23,25 @@ supportIE7: false
 supportIE8: false
 supportIE9: false
 
-# SERVER CENTRIC
-debug: true
-static: "/static/" #can change this to django tag for deploy
-
 sitemap:
-  - title: about us
-    active: false
+  - title: how we met
+    active: true
   - title: the proposal
-    active: false
+    active: true
   - title: the wedding party
-    active: false
+    active: true
   - title: the ceremony + reception
-    active: false
+    active: true
   - title: the weekend
-    active: false
+    active: true
   - title: the hotels
     active: true
   - title: the town
-    active: false
+    active: true
   - title: the registry
-    active: false
+    active: true
   - title: the honeymoon
-    active: false
+    active: true
 
 hotels:
   - name: Holiday Inn University
@@ -57,7 +53,8 @@ hotels:
     state: VA
     zip: 22901
     phone: (434) 977-7700
-    message: Be sure to include group code "MWB" when reserving.
+    map_link: "https://www.google.com/maps/place/1901+Emmet+St+N/@38.061263,-78.4926033,17z/data=!3m1!4b1!4m2!3m1!1s0x89b387c150b53fff:0xbeec185fe6e430f8"
+    message: Be sure to include group code "MWB."
     link: http://www.ihg.com/holidayinn/hotels/us/en/charlottesville/chonu/hoteldetail?groupCode=MWB&checkInDate=May-23-2014&checkOutDate=May-25-2014
 
   - name: Residence Inn Charlottesville
@@ -69,7 +66,8 @@ hotels:
     state: VA
     zip: 22901
     phone: (434) 923-0300
-    message: The rooms available are single queen suites.
+    map_link: "https://www.google.com/maps/place/1111+Millmont+St/@38.052794,-78.5030309,17z/data=!3m1!4b1!4m2!3m1!1s0x89b387b6c8e578ad:0x374f939608cba95"
+    message: Single queen suites available.
     link: http://www.marriott.com/meeting-event-hotels/group-corporate-travel/groupCorp.mi?resLinkData=Mertes-Potter%20Wedding%20Room%20Block%5Echori%60mpwmpwa%60139%60USD%60false%605/22/14%605/25/14%605/4/14&app=resvlink&stop_mobi=yes
 
   - name: Fairfield Inn & Suites
@@ -81,106 +79,222 @@ hotels:
     state: VA
     zip: 22901
     phone: (434) 964-9411
-    message: Rooms available are single king suites and two double bed suites.
+    map_link: "https://www.google.com/maps/place/577+Branchlands+Blvd/@38.07252,-78.481236,17z/data=!3m1!4b1!4m2!3m1!1s0x89b387e47ddf70db:0xa47fbc8a932ce2a3"
+    message: Single king & two double bed suites available
     link: http://www.marriott.com/meeting-event-hotels/group-corporate-travel/groupCorp.mi?resLinkData=Mertes-Potter%20Wedding%5ECHOFI%60MPWMPWA%7CMPWMPWB%60129.00%60USD%60false%605/23/14%605/25/14%604/23/14&app=resvlink&stop_mobi=yes
 
 wedding_party:
-  - who: Carolyn
-    party: 
+  - who: Bridesmaids
+    party:
       - name: Aly Cannon
-        position: Maid of Honor
-        relation: Friend
+        relation: "Maid of Honor, Friend, and Fellow Rebel"
+        location: "Cleveland, OH"
+        photo: aly.jpg
+        description:
+          "Aly and Carolyn’s friendship goes back to 1996. Also an only child,
+          having gotten through the awkward teen years together, years of playing
+          softball and tennis together, and spending endless summer days riding
+          bikes, and going to the mall, their childhood friendship was solid.
+          They once got busted for curfew by the cops and cried about it.
+          Secretly their parents were both so relieved that they finally got
+          into a little trouble. No one likes a goody-two-shoes!"
       - name: Cassie Seiter
-        position: Bridesmaid
-        relation: Friend
+        relation: Friend and Adventurer
+        location: "Cleveland, OH"
+        photo: cassie.jpg
+        description:
+          "Cassie and Carolyn became friends in 1996. Also an only child, along
+          with Aly, they became like sisters to each other. Cassie, having an
+          incredible wardrobe for a teenager, threw her scraps to Carolyn and
+          Aly, including a sacred Margaritaville t-shirt with thumbholes (hey,
+          it was the 90’s and it was cool!). Cassie has always been incredibly
+          strong inside and out. She has no fear. No fear of playing rugby, no
+          fear of living in Thailand, and certainly no fear of riding side-saddle
+          on a speedbike through Bangkok."
       - name: Tricia Power
-        position: Bridesmaid
-        relation: Friend
-      - name: Liz White
-        position: Bridesmaid
-        relation: Friend
+        relation: Friend and Hilarious Ally
+        location: "Seoul, South Korea"
+        photo: tricia.jpg
+        description:
+          "Protests for sleepovers are really the foundation of this friendship,
+          orchestrating elaborate campaigns including signs with puffy paint,
+          hilarious hand-written letters, and entertaining demonstrations to
+          coerce their parents to let them sleepover. It worked 99% of the time.
+          Their moms used to work together and were good friends, Carolyn’s mom
+          having been Tricia’s godmother. Tricia has been living in South Korea,
+          loving her life as Tricia Teacher."
       - name: Jess Sherard
-        position: Bridesmaid
-        relation: Friend
-      - name: Ashley Hartman
-        position: Bridesmaid
-        relation: Friend
+        relation: Friend and Travel Buddy
+        location: "Greensboro, NC"
+        photo: jess.jpg
+        description:
+          "Jess and Carolyn met through mutual friends when Carolyn lived in
+          North Carolina. They were quick friends and she became an integral
+          part of Carolyn’s circle of friends including Ben and Erin Cawley.
+          Jess and Carolyn traveled to Europe together and have shared numerous
+          liters of beer and an impossible amount of laughter. Jess strikes the
+          perfect balance of hilarity and thoughtfulness in everything she does."
+      - name: Ash Hartman
+        relation: Friend and Outdoors-woman
+        location: "Baltimore, MD"
+        photo: ash.jpg
+        description:
+          "Carolyn met Ash when she played rec volleyball for Arlington county.
+          Having hailed from the Blue Ridge Mountains in southwest Virginia,
+          Ash and Carolyn have a love of the outdoors and adventure in common.
+          They became fast friends and quickly integrated with each other’s
+          circle of friends. When Carolyn cracked her chin open on her birthday,
+          Ash insisted on coming with Cobey and Carolyn to the clinic
+          because she wanted to watch as they put stitches in Carolyn’s chin.
+          Weird right? But she is training to be a nurse."
+      - name: Liz White
+        relation: Friend and Sommelier
+        location: "Christiansburg, VA"
+        photo: liz.jpg
+        description:
+          "Liz and Carolyn met during the summer session at Virginia Tech before
+          their senior year, where the afternoons were spent studying and the
+          happy hours were spent at Sharkeys. They graduated Virginia Tech together
+          in 2006. Since then, Liz has been living and working near Virginia
+          Tech and has begun a food blog that will make anyone’s mouth water.
+          She has a fine appreciation for wine and knows every word to “99 bottles
+          of wine on the wall”"
       - name: Erin Potter
-        position: Bridesmaid
-        relation: Friend and Future Sister-in-Law of Bride
-  - who: Cobey
+        relation: Friend and Future Sister-in-Law
+        location: "Falls Church, VA"
+        photo: erin_p.jpg
+        description:
+          "Erin is Cobey's sister. She first met Carolyn during a wine-tasting
+          trip in Charlottesville and was with Cobey and Carolyn when they first
+          came to King Family Vineyard together. Erin has been a ski instructor
+          and has gone sky-diving with her mom. There is really no fear with
+          this one. Erin has welcomed Carolyn into the family open arms, and
+          is Kuma's favorite aunt."
+  - who: Groomsmen
     party:
       - name: Ben Lopatin
-        position: Best Man
-        relation: Friend and Business Partner
+        relation: "Best Man, Friend, and Business Partner"
+        location: "Richmond, VA"
         photo: ben.jpg
-        description: 
-          "Cobey met Ben on the first day of college and over the next few years, 
-          through shared courses and interests, became fast friends."
+        description:
+          "Cobey met Ben on the first day of college and over the next few years,
+          through shared courses and interests, became fast friends. Ben has been
+          a big support over almost 15 years, and both he and Cobey have helped each
+          other escape more than a few jams. They founded their company,
+          Wellfire Interactive, seven years ago, which means he and Cobey have had
+          almost as many life-planning discussions as bride and groom. Ben lives in Richmond, VA
+          with his VCU professor wife, Lisa, but still mananges to send jokes to Cobey daily."
       - name: Reid Kasprowicz
-        position: Groomsman
         relation: Friend and Fellow Adventurer
+        location: "Reston, VA"
         photo: reid.jpg
-        description: 
+        description:
           "Though they only shared a few courses while at UVA, Reid and Cobey
           rabble-roused with the rest of the Party for the greater part of college. Reid is
           Cobey's world-adventure travel buddy, having traveled to Bermuda and around the perimeter
-          of Ireland. Reid kept forgetting to drive on the other side of the road, helping Cobey uncover 
+          of Ireland. Reid kept forgetting to drive on the other side of the road, helping Cobey uncover
           his future with Carolyn every time his life flashed before his eyes."
       - name: Justin Selfridge
-        position: Groomsman
         relation: Friend and Science Officer
+        location: "Charlottesville, VA"
         photo: justin.jpg
-        description: 
-          "Justin is crazy smart and is studying for his PHD at UVA. He's also crazy loud and has 
+        description:
+          "Justin is crazy smart and is studying for his PHD at UVA. He's also crazy loud and has
           gotten Cobey into trouble more than once because he doesn't know how to whisper
           (Intro to Perception ring a bell?). Justin is getting married later this year to his wonderful
           fiancé, Calla. Both are full-of-life and both are loud. You'll hear them laughing all weekend long."
       - name: Hunter Brooks
-        position: Groomsman
         relation: Friend and Bandmate-in-Arms
+        location: "Chesterfield, VA"
         photo: hunter.jpg
         description:
           "Hunter and Cobey wrote music and performed in a band and spent many a night enjoying loud rock
           music and beers while in college. They once attempted to grill indoors during a hurricane. Cobey introduced
-          Hunter to his beautiful wife, Diana, during one evenful college spring break. Cobey is still waiting for a
+          Hunter to his beautiful wife, Diana, during one eventful college spring break. Cobey is still waiting for a
           Brooks child to be named after him."
       - name: Carlo Williams
-        position: Groomsman
         relation: Friend and Fellow Wahoo Fanatic
+        location: "Atlanta, GA"
         photo: carlo.jpg
         description:
-          "Carlo and Cobey were in rival libation clubs while at UVA. They started hanging out after they kept 
-          turning up at the same events. Carlo and Cobey have had some great adventures with late night NYE 
+          "Carlo and Cobey were in rival libation clubs while at UVA. They started hanging out after they kept
+          turning up at the same events. Carlo and Cobey have had some great adventures with late night NYE
           Waffle House and Denny's runs, entertaining locals on Austin's 6th Street, and shutting down many a bar
           in Atlanta, where Carlo now lives. Look for Carlo's smooth moves on the dance floor."
       - name: Phil Meawad
-        position: Groomsman
         relation: "Friend and, amazingly, a Hokie"
+        location: "Arlington, VA"
         photo: phil.jpg
         description:
-          "What to say about Phil? Phil is a Hokie. He is definitely the only Hokie allowed on this side of the 
-          aisle. Phil is the first of Carolyn's friends that Cobey met, acting as the judge and jury to whether 
-          a Hokie and Hoo could ever date through football season. Looks like his judgement is a sound one."
+          "What to say about Phil? Phil is a Hokie. He is definitely the only Hokie allowed on this side of the
+          aisle. Phil is the first of Carolyn's friends that Cobey met, acting as the judge and jury to whether
+          a Hokie and Hoo could ever date through football season. Looks like his judgment is a sound one."
       - name: Kent Hodgson
-        position: Groomsman
-        relation: Friend and Sister's Boyfriend
+        relation: Friend and a Moral Compass
+        location: "Falls Church, VA"
         photo: kent.jpg
         description:
-          "Kent is dating Cobey's sister, Erin, and is "
+          "Cobey and Carolyn met Kent at Erin Potter's first backyard cookout. Kent went to college with Erin and
+          is a great guy that Erin adores. He attests that Kuma likes him better than Erin. Kent can't play golf
+          worth a lick, but is quite adept at table tennis and bocce ball. He is not allowed at important UVA
+          sporting events as he seems to be a bad luck charm for the team."
 
-wedding_extras:  
+wedding_extras:
   who: Other Excellent People
   party:
     - name: Ben Cawley
-      position: Officiant
-      relation: Friend of Bride and Groom
+      relation: "Officiant, Friend, and Strategic Chess Player"
+      location: "Greensboro, NC"
+      description:
+        "Carolyn met Ben when he was courting his future wife, Erin, and has been
+        a great friend to both bride and groom. Ben is the officiant for the
+        King Family Vineyards wedding and can really write some powerful prose.
+        Now that his Syracuse Orange are in the ACC, he finally gets to see some
+        games in person. Unfortunately, it also means that the UVA-Cuse lacrosse
+        rivalry has gotten much stronger, apparently basketball, too. Sorry,
+        but not sorry, that the Hoos pulped dem Oranges, Ben!"
+      photo: ben_c.jpg
     - name: Erin Cawley
-      position: Reader
-      relation: Friend of Bride
+      relation: "Reader, Friend, and Former Roomie"
+      location: "Greensboro, NC"
+      photo: erin_c.jpg
+      description:
+        "Erin and Carolyn lived together in North Carolina. Both being Ohio
+        State Buckeye fans, the friendship was an easy one to develop. Soon
+        they garnered a group of friends they called the Coalition, which went
+        out in Greensboro every weekend and ended up back at their apartment.
+        Erin would usually fill the role of short-order cook, house mom, and
+        social coordinator. She and Ben have two lovely sons, Lincoln and Gavin."
     - name: Amy Giovannucci
-      position: Reader
-      relation: Friend of Bride
+      relation: "Reader, Friend, and Mentor"
+      location: "Alexandria, VA"
+      photo: amy.jpg
+      description:
+        "Amy and Carolyn met when they started at Accenture together in 2007.
+        Amy, coming into Accenture with several more years’ experience than
+        Carolyn, filled the role of friend and mentor for her. A die-hard
+        Capitals fan, she lives for hockey season, but also lives for her
+        friends, and Vegas!"
     - name: Matt Tremonte
-      position: Reader
-      relation: Friend of Groom
+      relation: "Reader, Friend, and Midnight Highway Hiker"
+      location: "Seattle, WA"
+      photo: matt.jpg
+      description:
+        "Matt's JMU's biggest fan, but he and Cobey became friends after
+        meeting while both were visiting UVA post-graduation. Matt is an avid
+        homebrewer who makes some very tasty libations. Through countless
+        adventures through out DC, Virginia, and Delaware, Matt eventually moved
+        with his wonderful wife, Annie, to Seattle, but not before Matt wandered
+        seven miles in a seersucker jacket and pajama pants back to Cobey's mom's house.
+        The annual Foxfield Races trip certainly leaves an impression!"
+    - name: Kuma Potter
+      relation: "Family Dog, Rare Breed, and Wedding Hound"
+      location: "wherever Cobey and Carolyn are"
+      photo: kuma.jpg
+      description:
+        "Kuma is Cobey and Carolyn's lovely Shiba Inu. He joined their family three years
+        ago for Carolyn's birthday and has been quite an impression on them since then. He
+        hangs out all work day with Cobey and, once 5pm hits, sits facing the front door,
+        waiting for Carolyn to get home. Kuma hates pools but loves the ocean and wants to
+        go everywhere with his family. Unfortunately he won't be attending the wedding, but
+        he's planning on being in Charlottesville just the same."

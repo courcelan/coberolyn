@@ -1,10 +1,18 @@
 extends /wedding-base
 
-prepend page
-  - mainFill = "f1"
+block variables
+  - body_class = "f3" 
+
+prepend nav_pri
+  - nav_class = "pad-x"
   
-block primary
-  article.view.fill2_5.push3_5.space-above
-    img(src="#{static}res/cville_sign.jpg").pad-xy25.hairline
+//- prepend cr_pri
+//-   - priClass = "fill4_5"
+8
+
+
+//- block primary
+//-   article.view.space-above.reverse.pad-x
+//-     img(src="#{static}res/cville_sign.jpg").fill4_5.pad-xy25.hairline
   
 

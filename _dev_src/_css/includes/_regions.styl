@@ -15,6 +15,31 @@
 // Site Header
 //
 //
+.hdr--hosts
+.hdr--date
+  @extend $titles  
+  font-size: 20px
+  line-height: blh*1.2
+
+  +over(bp_condensed)
+    font-size: 36px
+    line-height: blh*2
+
+.hdr--icon
+  position: absolute
+  margin-top: blh*.35
+  right: 420px
+  height: blh*1.5
+  width: @height
+  
+  .icon
+    fill: orange[0]
+  
+  +condensed()
+    right: 230px
+    margin-top: blh*.25
+    height: blh
+    width: @height
 
 // ==========================================================================
 // Footer Content Region
@@ -28,4 +53,33 @@
 // 
 // View template that holds general content
 //
-//    
+//
+.view
+  p
+    display: block
+
+  +under(bp_extended)
+    overflow: visible    
+
+    > .context
+      overflow: visible          
+
+.view--img
+  ~ .view--bd
+      display: block
+
+  +condensed()
+    position: absolute
+    -webkit-filter: grayscale(80%)
+    -ms-filter: grayscale(80%)
+    -firefox-filter: grayscale(80%)
+    filter: grayscale(80%)
+    opacity: .2
+    padding: 0
+    border: 0
+
+    
+      
+
+
+  

@@ -1,4 +1,0 @@
-cloudvent:
-  options:
-    stdout: true
-  command: 'cp -r <%= build.base %>/ ~/Dropbox/Apps/Cloud\ Cannon/<%= cloudvent %>'

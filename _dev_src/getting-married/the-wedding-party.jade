@@ -1,38 +1,45 @@
 extends /wedding-base
 
-prepend page
-  - mainFill = "f3"
+block variables
+  - body_class = "f3"
+  - main_class = "fill4_5"
+  - nav_class = "fill1_5"
 
 block primary
   article.view
     header.view--hdr.space-below
       h1.typ-poster Wedding Party
     .view--bd
-      ul.arrange
+      ul
         for side in wedding_party
-          li.spot-info.copy.fill2_4.arrange--itemFit.pad-xy50
+          li.spot-info.copy.fill2_4.pad-xy50
             header.spot-info--hdr
-              h2.typ-poster= side.who
+              h2.typ-display= side.who
             ul
               for member in side.party
                 li.spot-info--data.pad-y50.context
                   if member.photo
                     img(
                       src="#{ static }res/#{ member.photo }"
-                    ).fill1_5.objLeft.pad-xy25.hairline
+                    ).spot-info--photo.fill1_5.objLeft.pad-xy25.hairline
                   .context
-                    span.typ-subhead #{ member.name },&nbsp; 
-                    span #{ member.position }
-                    p= member.relation
+                    h3.typ-subhead #{ member.name }
+                    div: i= member.relation
+                    .space-below50: b= member.location
                     p= member.description
 
-      .spot-info.copy.pad-xy50
-        header.spot-info--hdr
-          h2.typ-poster= wedding_extras.who
+      .spot-info.pad-y50
+        header.spot-info--hdr.pad-x50
+          h2.typ-display= wedding_extras.who
         ul
           for member in wedding_extras.party
-            li.spot-info--data.pad-y50
-              span.typ-subhead #{ member.name },&nbsp; 
-              span #{ member.position }
-              p= member.relation
-              p= member.description
+            li.spot-info--data.copy.pad-xy50.context.fill2_4
+              if member.photo
+                img(
+                  src="#{ static }res/#{ member.photo }"
+                ).spot-info--photo.fill1_5.objLeft.pad-xy25.hairline
+              .context
+                h3.typ-subhead #{ member.name }
+                div= member.relation
+                .space-below50: b= member.location
+                p= member.description

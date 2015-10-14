@@ -13,36 +13,77 @@
 // -(Regular) : usually left unnamed, typically about 10–13 point
 // -smtext : typically about 8–10 point
 // -caption : very small, typically about 6–8 point
+$bodystack
+  font-family: body_stack
+
 $headingstack
   font-family: header_stack
   letter-spacing: -.1em
-
-$bodystack
-  font-family: body_stack
 
 $titles
   @extend $bodystack
   font-weight: 500
   text-transform: lowercase
 
-.hdr--hosts
-.hdr--date
-  @extend $titles  
+$headings
+  @extend $headingstack
+  text-indent: -.25em
+
+.typ-poster
+  @extend $headings
   font-size: 36px
   line-height: blh*2
 
+  +under(bp_extended)
+    font-size: 28px
+
+.typ-display
+  @extend $headings
+  font-size: 24px
+  line-height: blh*2
+
+  +under(bp_extended)
+    font-size: 18px
+    line-height: blh
+
+.typ-subhead
+  @extend $headings
+  font-size: 15px
+
+
+
+//
+// LINKS
+//
+//
 .nav-pri--link
   @extend $titles  
   font-size: blh
   line-height: blh
 
-.typ-poster
-  @extend $headingstack
-  font-size: 36px
-  line-height: blh*2
-  text-indent: -.25em
 
-.typ-subhead
-  @extend $headingstack
-  font-size: 15px
-  margin-left: -.25em
+
+//
+// COPY
+//
+//
+.copy
+  @extend $bodystack
+  font-size: bfs
+
+  pre
+    @extend $bodystack
+    
+  p,
+  li
+    padding-bottom: blh*.5
+
+  b,
+  strong
+    font-weight: 500
+  
+  li 
+    ul
+      padding-top: 10px
+    li
+      padding-left: blh

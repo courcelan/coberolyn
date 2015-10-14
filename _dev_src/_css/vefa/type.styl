@@ -16,7 +16,7 @@
 //         (if not available, best to remove it because of 404 errors)
 //
 //
-font-load( font_name = 'FF1', file, type = 'otf', woff = true)
+font-load( font_name = 'FF1', file, type = 'otf', woff = true, italic = false, bold = false)
   @font-face
     font-family: font_name
     src: url( file +'.eot' ) //IE9 Compat
@@ -26,6 +26,10 @@ font-load( font_name = 'FF1', file, type = 'otf', woff = true)
     // if no woff
     src: url( file +'.eot?' ) format("embedded-opentype"), url( file +'.otf' ) format("opentype") if type is 'otf' && woff is false
     src: url( file +'.eot?' ) format("embedded-opentype"), url( file +'.ttf' ) format("truetype") if type is 'ttf' && woff is false
+    if italic
+      font-style: italic
+    if bold
+      font-weight: bold
 
 
 

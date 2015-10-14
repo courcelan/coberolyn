@@ -10,8 +10,8 @@
 //
 //
 // Cantarell loaded through Typekit
-font-load('frontage', res+"/Frontage-Regular", otf, false)
-// font-load('Frontage', res/Frontage-Bold, otf, false)
+font-load('frontage', res+"/Frontage-Regular", otf, true)
+font-load('frontage', res+"/Frontage-Bold", otf, true, false, 900)
 // font-load( altgoth, res+'/AlternateGotNo3D', otf, false)
 // font-load( cantarell, res+'/u004001t', ttf, false)
 
@@ -44,8 +44,8 @@ utils()
 // calls padding and space class structures based on arg2 and arg3
 //
 //
-base_pad(xy x y, 25 50 75 100 200)
-base_space(x y above below center, 10 25 50 100 150 200)
+base_pad(xy x y above, 25 50 100 200)
+base_space(x y above below before center, 25 50 100 200)
 
 
 
@@ -55,9 +55,10 @@ base_space(x y above below center, 10 25 50 100 150 200)
 // create grid classes based on grid hashes defined in _traxng.styl
 //
 //
-base_gridset(grids.thirds)
-base_gridset(grids.fourths)
-base_gridset(grids.fifths)
++over(bp_condensed)
+  base_gridset(grids.thirds)
+  base_gridset(grids.fourths)
+  base_gridset(grids.fifths)
 
 
 // ==========================================================================
@@ -108,4 +109,23 @@ img
 
 details 
   summary::-webkit-details-marker
+    display: none
+
++condensed()
+  .no-condensed
+    display: none
+
++over(bp_condensed)
+  .no-condensed
+    display: inline-block
+
+  .only-condensed
+    display: none
+ 
++under(bp_extended)
+  .only-extended
+    display: none
+
++extended()
+  .no-extended
     display: none

@@ -1,11 +1,30 @@
 .spot-info
-  &:last-child:nth-child(odd)
+  +under(bp_extended)
     width: 100%
 
-.spot-info--hdr
-  height: blh*2
+.spot-info--photo
+  +condensed()
+    width: 25%
+
 
 .spot-info--data
+  +extended()
+    min-height: blh*15
+
+.hotel
+  display: inline-block
+  
+  +enhanced()
+    width: 100%
+
+
+.hotel--hdr
+  height: blh*2
+
+  +enhanced()
+    height: auto
+
+.hotel--data
   dd
   dt
     width: auto
@@ -20,9 +39,21 @@
     span
       display: block
 
-.spot-info--ftr
-  height: blh*6
-
-  .btn-outbound
+.hotel--ftr
+  height: blh*2
+  
+  +enhanced()
     position: absolute
-    edges: auto 0 0 auto
+    top: blh*1.5
+    right: blh*.5
+    height: auto
+    width: 33%
+
+
+.hotel--actionbar
+  position: absolute
+  edges: auto 0 0 auto
+
+  +enhanced()
+    position: static
+    text-align: left

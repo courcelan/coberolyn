@@ -1,0 +1,20 @@
+extends /wedding-base
+
+block variables
+  - body_class = "f2"
+  - main_class = "fill4_5"
+  - nav_class = "fill1_5"
+
+block primary
+  article.view.context
+    header.view--hdr
+      h1.typ-poster The Honeymoon
+    .view--img.fill2_5.objLeft.pad-xy25.hairline.only-extended
+      img(src="#{ static }res/c_asia.jpg")
+      .copy
+        span.space-above25 Carolyn practicing for Asia. (actually this is her in Hong Kong)
+    .context
+      img(src="#{ static }res/c_asia.jpg").view--img.fill2_5.objLeft.pad-xy25.hairline.no-extended
+      .view--bd.copy.space-below
+        :markdown
+          We're planning on heading to Japan in the coming months/later this year. Watch this space for a few photos and itinerary!

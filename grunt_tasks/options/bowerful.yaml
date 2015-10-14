@@ -1,6 +1,0 @@
-# bower
-init:
-  packages: "<%= bower_packages %>"
-  store: "<%= src.vendor %>"
-  dest: "<%= build.vendor %>"
-  destfile: "vendor"

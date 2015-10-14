@@ -1,6 +1,0 @@
-#start static server for testing and development
-dev:
-  options:
-    port: 1515
-    hostname: '*'
-    base: '<%= build.base %>'
